@@ -1,31 +1,43 @@
-LIBS= -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+.PHONY: release all clean cleanall
+
+LIBS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+FLAGS = -std=c++11 -I ./code/Include
 CXX = g++
-CXXFLAGS=-I /opt/SFML-2.5.1/include -I Include
-SOURCES=$(shell find .  -name "*.cpp" -not -path "./tests/*")
-OBJECTS=$(SOURCES:.cpp=.o)
+
+RELEASE = -Wl,-rpath,./lib
+
+SOURCES = $(shell find . -name "*.cpp" -not -path "./tests/*")
+TMP = $(notdir $(SOURCES))
+OBJECTS = $(addprefix ./build/, $(TMP:.cpp=.o))
 
 all: play
 
-depend: .depend
-
-.depend: $(srcfiles)
-	rm -f ./.depend
-	$(CXX) $(CXXFLAGS) -MM $^>>./.depend -static;
-
-
+release: $(OBJECTS)
+	g++ -o play $(OBJECTS) $(LIBS) $(FLAGS) $(RELEASE)
 
 play: $(OBJECTS)
-	$(CXX) -o play $(OBJECTS) $(LIBS) -L /opt/SFML-2.5.1/lib 
+	g++ -o play $(OBJECTS) $(LIBS) $(FLAGS)
+
+# maybe a recursive loop through dirs?
+#						  |  
+#						  .  here?
+
+$(OBJECTS): build/%.o : code/%.cpp
+	g++ -c $< -o $@ $(LIBS) $(FLAGS)
 
 clean:
+	@echo "** Removing object files..."
+	rm -f ./build/*.o
+
+cleanall:
 	@echo "** Removing object files and executable..."
-	rm *.o
+	rm -f ./build/*.o
 	rm -f play
 
 install:
-	@echo '** Installing...'
+	@echo "** Installing..."
 #	cp thegame /usr/bin
 
 uninstall:
-	@echo '** Uninstalling...'
+	@echo "** Uninstalling..."
 #	rm play
