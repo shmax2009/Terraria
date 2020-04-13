@@ -92,19 +92,27 @@ int main()
 	int rotation = 1;
 
 	Event event;
+	// Event event1;
 	int numb = 0;
     int procent=0;	
-	int iterator=0;
+	int iterator=40;
 	while (window.isOpen())
 	{
-       if (GV::timeforjump  && procent !=1)
+       if (GV::timeforjump  && procent !=1 )
 	   {
 		 iterator=0;
 		 procent=1;
+		 GV::isitendofjump=false;
 	   }
-	   if(iterator==20)
+	   
+	   if(iterator==30)
 	   {
 		   GV::timeforjump=false;
+			procent=0;
+	   }
+	    if(iterator==60)
+	   {
+		   GV::isitendofjump=true;
 			procent=0;
 	   }
 		anim_her.setRot(rotation, numb, siz);
@@ -122,7 +130,7 @@ int main()
 		h.fythics_position(gravity,arr);
 		else
 		{
-			h.t++;
+			h.t+=1;
 		}
 		
 		iterator++;

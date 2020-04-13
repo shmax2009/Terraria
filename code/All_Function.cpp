@@ -89,14 +89,14 @@ void How_hero_change_position(Hero &h, Event event, int &rotation, int &numb,Blo
         numb++;
     }
 
-    if ((event.key.code == Keyboard::Up) || (event.key.code == Keyboard::W) || (event.key.code == Keyboard::Space) && GV::timeforjump==false)
-    {   int xmc;
+    if ((event.key.code == Keyboard::Space) && GV::isitendofjump==true)
+    {   
+        int xmc;
         int ymc;
         xmc = (int)(100 - trunc(h.r)) / (24 / GV::size);
         ymc = (int)(95 - trunc(h.t)) / (48 / GV::size);
-
-        if (arr[xmc][ymc].getType() == 0)
         
+        if (arr[xmc][ymc].getType() == 0)
         GV::timeforjump = true;
         }
     

@@ -20,6 +20,7 @@ class GV
 		static const int y;
 		static const float size;
 		static bool timeforjump;
+		static bool isitendofjump;
 };
 
 #endif
