@@ -3,42 +3,69 @@
 #include <vector>
 
 using namespace std;
-
-int maxSubArray(vector<int> &nums)
+class Numbers
 {
-    int s;
-    long long int max = -2500000000;
-
-	for (int i = 0; i < nums.size(); i++)
+public:
+    virtual void getType() = 0;
+};
+class N1 : public Numbers
+{
+public:
+    int type = 1;
+    void getType()
     {
-        if (s < 0)
-            s = nums[i];
-        else
-            s += nums[i];
-
-        if (s > max)
-            max = s;
+        cout << type << endl;
     }
+};
 
-    return max;
-}
+class N2 : public Numbers
+{
+public:
+    int type = 2;
+    void getType()
+    {
+        cout << type << endl;
+    }
+};
+
+class Fabric
+{
+public:
+    static Numbers *crete(int i)
+    {
+        Numbers *p;
+        switch (i)
+        {
+        case 1:
+            p = new N1;
+            break;
+
+        case 2:
+            p = new N2;
+            break;
+
+        default:
+            break;
+        }
+        return p;
+    }
+};
 
 int main()
-{  
-	vector <int> nums;
-    int n;
-
-    cin >> n;
-
-    for (int i = 0; i < n; i++)
+{
+    Numbers **arr = new Numbers *[5];
+    for (int i = 0; i < 5; i++)
     {
-        int tmp;
-        cin >> tmp;
 
-        nums.push_back(tmp);
+        arr[i] = Fabric::crete(rand() % 2 + 1);
     }
+    //
+    //    arr[0]=Fabric::crete(1);
 
-    cout << maxSubArray(nums);
+    for (int i = 0; i < 5; i++)
+    {
 
-	return 0;
+        arr[i]->getType();
+    }
+    return 0;
 }

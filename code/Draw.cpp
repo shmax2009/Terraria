@@ -41,11 +41,23 @@ void drawWorld(RenderWindow &window, Block **arr, Texture *world_texture, float 
             if (((tmpx > -20) && (tmpx < 220)) && ((tmpy > -20) && (tmpy < 220)))
             {
                 Sprite tmp;
-
+                if(arr[i][j].getType()==0){
+                if(GV::day==0)
                 tmp.setTexture(world_texture[arr[i][j].getType()]);
-
+                else
+                {
+                tmp.setTexture(world_texture[25]);  
+                }
+                }
+                else
+                {
+                    tmp.setTexture(world_texture[arr[i][j].getType()]);
+                }
+                
+                
                 tmp.setScale((0.5 / GV::size + 0.01), (1 / GV::size + 0.01));
                 tmp.setPosition(tmpx, tmpy);
+
                 window.draw(tmp);
             }
         }

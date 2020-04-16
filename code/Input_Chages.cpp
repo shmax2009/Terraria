@@ -24,13 +24,13 @@
 using namespace std;
 using namespace sf;
 
-void input_bounds(RenderWindow &window, Event event, ofstream &fout, ifstream &fin,Block **arr, Hero &h, Inventory *inventor, int &n, int &rotation, int &numb)
+void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &fin,Block **arr, Hero &h, Inventory *inventor, int &n, int &rotation, int &numb)
 {
     // FIXME: Comment
 
-    while (window.pollEvent(event))
+    while (window.pollEvent(event[0]))
     {
-        if (event.type == Event::Closed)
+        if (event[0].type == Event::Closed)
         {
             fout.open("/home/max/learn_c/Teraria/Maps/map.bin", ofstream::out);
             cinmap(arr, fout);
@@ -45,9 +45,9 @@ void input_bounds(RenderWindow &window, Event event, ofstream &fout, ifstream &f
             window.close();
         }
 
-        if (event.type == Event::KeyPressed)
+        if (event[0].type == Event::KeyPressed)
         {
-            if (event.key.code == Keyboard::Escape)
+            if (event[0].key.code == Keyboard::Escape)
             {
                 inventor[n].col = 0;
             }

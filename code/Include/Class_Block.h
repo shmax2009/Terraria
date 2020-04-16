@@ -12,9 +12,9 @@ using namespace sf;
 class Block
 {
 	public:
-    	int type; // public ??
+    	//int type; // public ??
 
-	    void setType(int x);
+	void setType(int x);
     	int getType();
 };
 

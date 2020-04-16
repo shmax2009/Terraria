@@ -14,7 +14,7 @@
 using namespace std;
 using namespace sf;
 
-void all_thing_thats_happend_with_cursor(RenderWindow &window, Event event, Inventory *inventor, Block **arr, Sprite Frame, Sprite Cursor, int n,Hero &h)
+void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inventory *inventor, Block **arr, Sprite Frame, Sprite Cursor, int n, Hero &h)
 {
     int xmc;
     int ymc;
@@ -29,6 +29,7 @@ void all_thing_thats_happend_with_cursor(RenderWindow &window, Event event, Inve
 
     if (true)
     {
+
         if (Mouse::isButtonPressed(Mouse::Left))
         {
             if ((arr[xmc][ymc].getType() != 0) && (freeInventor(inventor, arr[xmc][ymc].getType()) < 8))
@@ -57,14 +58,14 @@ void all_thing_thats_happend_with_cursor(RenderWindow &window, Event event, Inve
         }
     }
 
-        if (inventor[n].col <= 0)
-        {
-            inventor[n].col = 0;
-            inventor[n].type = 0;
-        }
-
-        Frame.setPosition(n * (24 / GV::size), 0);
-
-        window.draw(Frame);
-        window.draw(Cursor);
+    if (inventor[n].col <= 0)
+    {
+        inventor[n].col = 0;
+        inventor[n].type = 0;
     }
+
+    Frame.setPosition(n * (24 / GV::size), 0);
+
+    window.draw(Frame);
+    window.draw(Cursor);
+}

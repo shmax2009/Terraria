@@ -21,6 +21,8 @@ class GV
 		static const float size;
 		static bool timeforjump;
 		static bool isitendofjump;
+		static float vect;
+		static int day;
 };
 
 #endif

@@ -29,6 +29,9 @@ void Hero::fythics_position(int gravity, Block **arr)
     int ymc;
     xmc = (int)(102-trunc(r)) / (24 / GV::size);
     ymc = (int)(115 - trunc(t)) / (48 / GV::size);
+    
+    // cout<<xmc<<" "<<ymc<<round(r)<<round(t)<<endl;
+    to=t;
     t -= (float)gravity;
     if (arr[xmc][ymc].getType() != 0)
         t += (float)gravity;

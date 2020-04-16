@@ -19,6 +19,8 @@ class Hero
 	public:
 		float r;
 		float t;
+		int ro=r;
+		int to=t;
 	void fythics_position(int gravity ,Block **arr);
 	
 };

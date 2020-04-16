@@ -44,26 +44,30 @@ int freeInventor(Inventory *inventor, int f)
     return h;
 }
 
-int what_nymber_of_inventor(Event event, int on)
+int what_nymber_of_inventor(Event *event, int on)
 {
     int n = on;
 
-    if (event.key.code >= Keyboard::Num1 && event.key.code <= Keyboard::Num8)
+    if (event[0].key.code >= Keyboard::Num1 && event[0].key.code <= Keyboard::Num8)
     {
-        n = event.key.code - Keyboard::Num1;
+        n = event[0].key.code - Keyboard::Num1;
     }
-    else if (event.key.code >= Keyboard::Numpad1 && event.key.code <= Keyboard::Numpad8)
+    else if (event[0].key.code >= Keyboard::Numpad1 && event[0].key.code <= Keyboard::Numpad8)
     {
-        n = event.key.code - Keyboard::Numpad1;
+        n = event[0].key.code - Keyboard::Numpad1;
     }
 
     return n;
 }
 
-void How_hero_change_position(Hero &h, Event event, int &rotation, int &numb,Block **arr)
+void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb, Block **arr)
 {
-
-    if ((event.key.code == Keyboard::Right) || (event.key.code == Keyboard::D))
+    h.ro = h.r;
+    h.to = h.t;
+    int i1 = 0;
+    int i2 = 0;
+    int i3 = 0;
+    if ((event[i1].key.code == Keyboard::Right) || (event[i1].key.code == Keyboard::D))
     {
         int xmc;
         int ymc;
@@ -71,12 +75,14 @@ void How_hero_change_position(Hero &h, Event event, int &rotation, int &numb,Blo
         ymc = (int)(105 - trunc(h.t)) / (48 / GV::size);
 
         if (arr[xmc][ymc].getType() == 0)
+
             h.r -= 2.0;
         rotation = 1;
         numb++;
+        GV::vect = 1;
     }
 
-    if ((event.key.code == Keyboard::Left) || (event.key.code == Keyboard::A))
+    if ((event[i2].key.code == Keyboard::Left) || (event[i2].key.code == Keyboard::A))
     {
         int xmc;
         int ymc;
@@ -84,20 +90,21 @@ void How_hero_change_position(Hero &h, Event event, int &rotation, int &numb,Blo
         ymc = (int)(105 - trunc(h.t)) / (48 / GV::size);
 
         if (arr[xmc][ymc].getType() == 0)
+
             h.r += 2.0;
         rotation = -1;
         numb++;
+        GV::vect = -1;
     }
 
-    if ((event.key.code == Keyboard::Space) && GV::isitendofjump==true)
-    {   
+    if ((event[i3].key.code == Keyboard::Space) && GV::isitendofjump == true)
+    {
         int xmc;
         int ymc;
         xmc = (int)(100 - trunc(h.r)) / (24 / GV::size);
         ymc = (int)(95 - trunc(h.t)) / (48 / GV::size);
-        
+
         if (arr[xmc][ymc].getType() == 0)
-        GV::timeforjump = true;
-        }
-    
+            GV::timeforjump = true;
+    }
 }

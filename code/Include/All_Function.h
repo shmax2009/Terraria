@@ -18,8 +18,8 @@ int min(int x);
 
 int freeInventor(Inventory *inventor, int f);
 
-int what_nymber_of_inventor(Event event, int on);
+int what_nymber_of_inventor(Event *event, int on);
 
-void How_hero_change_position(Hero &h, Event event, int &rotation, int &numb,Block **arr);
+void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb,Block **arr);
 
 #endif
