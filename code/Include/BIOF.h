@@ -13,7 +13,7 @@
 #include <All_Function.h>
 #include <SIOFS.h>
 #include <Global_Variable.h>
-#include <crete_map.h>
+#include <create_map.h>
 #include <Draw.h>
 #include <Cursor_doing_in_game.h>
 #include <Textur_Terrain.h>
@@ -26,6 +26,6 @@
 using namespace std;
 using namespace sf;
 
-void open_or_create_all(ifstream &fin, ofstream &fout, Block **arr, int col_material, Hero &h, Inventory *inventor);
+void open_or_create_all(ifstream &fin, ofstream &fout, Block **arr, int col_material, Hero &h, Inventory *inventor,Biom *biom);
 
 #endif

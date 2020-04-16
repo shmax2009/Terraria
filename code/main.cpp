@@ -11,13 +11,14 @@
 #include <Input_chages.h>
 #include <SIOFS.h>
 #include <Global_Variable.h>
-#include <crete_map.h>
+#include <create_map.h>
 #include <Draw.h>
 #include <Cursor_doing_in_game.h>
 #include <Textur_Terrain.h>
 #include <BIOF.h>
 #include <Class_Hero.h>
 #include <Animation_of_hero.h>
+#include <Class_Biom.h>
 
 // 0.5 1
 // gimp 48 48
@@ -30,23 +31,26 @@ WT wt;
 
 const float FPS = 120.0f;
 const int col_material = 25;
+
 int main()
-{   
-   Music music[2];
-   music[0].openFromFile("/home/max/learn_c/Teraria/Resurce/Musics/Day.wav");
-   music[0].setLoop(true);
-   music[0].play();
-
-   music[1].openFromFile("/home/max/learn_c/Teraria/Resurce/Musics/Night.wav");
-   music[1].setLoop(true);
-
+{
+	Music music[4];
+	music[0].openFromFile("/home/max/learn_c/Teraria/Resurce/Musics/Day.wav");
+	music[0].setLoop(true);
+	music[0].play();
+	music[1].openFromFile("/home/max/learn_c/Teraria/Resurce/Musics/Night.wav");
+	music[1].setLoop(true);
+	music[2].openFromFile("/home/max/learn_c/Teraria/Resurce/Musics/Desert.wav");
+	music[2].setLoop(true);
+	music[3].openFromFile("/home/max/learn_c/Teraria/Resurce/Musics/Hell.wav");
+	music[3].setLoop(true);
 	float gravity = 1.0;
 	sizeh siz;
 	siz.h = 0.3;
 	siz.w = 0.3;
 
 	sf::Color color(255, 0, 0);
-
+	//   Biom biom[10];
 	srand(static_cast<unsigned int>(time(0)));
 	normal_distribution<double> distribution(19, 2.0);
 
@@ -54,7 +58,10 @@ int main()
 
 	window.setMouseCursorVisible(false);
 	window.setFramerateLimit(FPS);
-
+	Biom biom[3];
+	biom[0].generate(0, 0, GV::x / 2 - 4000, GV::y, Desert);
+	biom[1].generate(GV::x / 2 + 1 - 4000, 0, GV::x / 2 - 3900, GV::y, Jungle);
+	biom[2].generate(GV::x / 2 + 1 - 3900, 0, GV::x, GV::y, Hell);
 	wt.connect();
 	Texture green_slime_texture;
 	green_slime_texture.loadFromFile("/home/max/learn_c/Teraria/Resurce/Mobs/Green_Slime.png");
@@ -84,8 +91,7 @@ int main()
 	Hero_anim anim_her;
 	anim_her.takeit(siz, color);
 
-	open_or_create_all(fin, fout, arr, col_material, h, inventor);
-	open_or_create_all(fin, fout, arr, col_material, h, inventor);
+	open_or_create_all(fin, fout, arr, col_material, h, inventor, biom);
 
 	Cursor_texture.loadFromFile("/home/max/learn_c/Teraria/Resurce/Cursor.png");
 	Frame_texture.loadFromFile("/home/max/learn_c/Teraria/Resurce/Frame.png");
@@ -103,10 +109,10 @@ int main()
 	int numb = 0;
 	int procent = 0;
 	int iterator = 40;
-    int it=0;
+	int it = 0;
 	while (window.isOpen())
 	{
-		
+
 		if (GV::timeforjump && procent != 1)
 		{
 			iterator = 0;
@@ -143,11 +149,47 @@ int main()
 
 		iterator++;
 		it++;
-		if(it % 1000 ==999)
+
+		if (it % 1000 == 999)
 		{
-		music[GV::day].stop();
-		GV::day=(GV::day+1)%2;
-		music[GV::day].play();
+			music[GV::day].stop();
+			GV::day = (GV::day + 1) % 2;
+			music[GV::day].play();
+		}
+		int xmc;
+		int ymc;
+		xmc = (int)(102 - trunc(h.r)) / (24 / GV::size);
+		ymc = (int)(115 - trunc(h.t)) / (48 / GV::size);
+		if (whatsthetype(xmc, ymc, biom, 3) == 4)
+		{
+			music[1].stop();
+			music[0].stop();
+			if (music[2].getStatus() == 0)
+			{
+				music[2].play();
+			}
+		}
+		else
+		{
+			if (whatsthetype(xmc, ymc, biom, 3) == 21)
+			{
+				music[1].stop();
+				music[0].stop();
+				music[2].stop();
+				if (music[3].getStatus() == 0)
+				{
+					music[3].play();
+				}
+			}
+			else
+			{
+				music[2].stop();
+				music[3].stop();
+				if (music[GV::day].getStatus() == 0)
+				{
+					music[GV::day].play();
+				}
+			}
 		}
 	}
 

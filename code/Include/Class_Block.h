@@ -1,4 +1,4 @@
-#ifndef CLASS_BLOCK_H 
+#ifndef CLASS_BLOCK_H
 #define CLASS_BLOCK_H
 
 #include <SFML/Graphics.hpp>
@@ -11,11 +11,12 @@ using namespace sf;
 
 class Block
 {
-	public:
-    	//int type; // public ??
+private:
+	int type;
 
+public:
 	void setType(int x);
-    	int getType();
+	int getType();
 };
 
 #endif
