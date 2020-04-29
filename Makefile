@@ -1,7 +1,7 @@
 .PHONY: release all clean cleanall
 
 LIBS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
-FLAGS = -std=c++11 -I ./code/Include -I /opt/SFML-2.5.1/include 
+FLAGS = -std=c++11 -I ./code/Include -I /opt/SFML-2.5.1/include -ggdb 
 LDFLAGS = -L /opt/SFML-2.5.1/lib -no-pie
 CXX = g++
 
@@ -23,7 +23,7 @@ Terraria: $(OBJECTS)
 #						  |  
 #						  .  here?
 
-$(OBJECTS): build/%.o : code/%.cpp
+$(OBJECTS): build/%.o : code/cpp_files/%.cpp
 	g++ -c $< -o $@ $(LIBS) $(FLAGS)
 
 clean:

@@ -1,15 +1,19 @@
-#ifndef ALL_FUNCTION_H 
-#define ALL_FUNCTION_H
-
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <random>
-#include <math.h>
-
-#include <Class_Hero.h>
 #include <fstream>
+#include <random>
+#include <string>
+#include <math.h>
+#include<Animation_of_hero.h>
 #include <Class_Block.h>
 #include <Class_Inventory.h>
+#include <All_Function.h>
+#include <SIOFS.h>
+#include <Global_Variable.h>
+#include <create_map.h>
+#include <Draw.h>
+#include <Cursor_doing_in_game.h>
+#include <Textur_Terrain.h>
 
 #include <sky_block.h>
 #include <ground_block.h>
@@ -37,15 +41,24 @@
 #include <adamantite_block.h>
 #include <night_block.h>
 #include <grass_block.h>
+#include <Class_Hero.h>
+// 0.5 1
+// gimp 48 48
+//https://terraria-ru.gamepedia.com/%D0%91%D0%BB%D0%BE%D0%BA%D0%B8
+
 using namespace std;
 using namespace sf;
 
-int min(int x);
-
-int freeInventor(Inventory *inventor, int f);
-
-int what_nymber_of_inventor(Event *event, int on);
-
-void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb,Block **arr);
-
-#endif
+void Hero::fythics_position(int gravity, Block **arr)
+{ 
+    int xmc;
+    int ymc;
+    xmc = (int)(102-trunc(r)) / (24 / GV::size);
+    ymc = (int)(115 - trunc(t)) / (48 / GV::size);
+    
+    // cout<<xmc<<" "<<ymc<<round(r)<<round(t)<<endl;
+    to=t;
+    t -= (float)gravity;
+    if (arr[xmc][ymc].getType() != 0)
+        t += (float)gravity;
+}

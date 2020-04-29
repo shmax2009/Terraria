@@ -1,16 +1,6 @@
-#ifndef ALL_FUNCTION_H 
-#define ALL_FUNCTION_H
-
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <random>
-#include <math.h>
-
-#include <Class_Hero.h>
-#include <fstream>
+// #include <Fabrica.h>
 #include <Class_Block.h>
-#include <Class_Inventory.h>
-
+#include <iostream>
 #include <sky_block.h>
 #include <ground_block.h>
 #include <stone_block.h>
@@ -37,15 +27,10 @@
 #include <adamantite_block.h>
 #include <night_block.h>
 #include <grass_block.h>
-using namespace std;
-using namespace sf;
+class Fabrica
+{
+public:
+    static Block* create(int i);
 
-int min(int x);
-
-int freeInventor(Inventory *inventor, int f);
-
-int what_nymber_of_inventor(Event *event, int on);
-
-void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb,Block **arr);
-
-#endif
+    
+};

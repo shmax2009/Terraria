@@ -1,15 +1,26 @@
-#ifndef ALL_FUNCTION_H 
-#define ALL_FUNCTION_H
-
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
-#include <random>
-#include <math.h>
-
-#include <Class_Hero.h>
 #include <fstream>
+#include <random>
+#include <string>
+#include <math.h>
 #include <Class_Block.h>
 #include <Class_Inventory.h>
+#include <All_Function.h>
+#include <Input_chages.h>
+#include <SIOFS.h>
+#include <Global_Variable.h>
+#include <create_map.h>
+#include <Draw.h>
+#include <Cursor_doing_in_game.h>
+#include <Textur_Terrain.h>
+#include <BIOF.h>
+#include <Class_Hero.h>
+#include <Animation_of_hero.h>
+#include <Class_Biom.h>
+#include <Music.h>
+
 
 #include <sky_block.h>
 #include <ground_block.h>
@@ -37,15 +48,21 @@
 #include <adamantite_block.h>
 #include <night_block.h>
 #include <grass_block.h>
+// 0.5 1
+// gimp 48 48
+//https://terraria-ru.gamepedia.com/%D0%91%D0%BB%D0%BE%D0%BA%D0%B8
 using namespace std;
 using namespace sf;
 
-int min(int x);
+class Game
+{
+private:
+    default_random_engine generator;
+    WT wt;
 
-int freeInventor(Inventory *inventor, int f);
+    const float FPS = 120.0f;
+    const int col_material = 25;
 
-int what_nymber_of_inventor(Event *event, int on);
-
-void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb,Block **arr);
-
-#endif
+public:
+    void play();
+};

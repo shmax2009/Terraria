@@ -11,12 +11,12 @@ using namespace sf;
 
 class Block
 {
-private:
-	int type;
+//private:
+	//int type;
 
 public:
-	void setType(int x);
-	int getType();
+//	void setType(int x);
+virtual	int getType() = 0;
 };
 
 #endif
