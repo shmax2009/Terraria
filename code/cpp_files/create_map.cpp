@@ -38,15 +38,13 @@
 #include <night_block.h>
 #include <grass_block.h>
 #include <fabrica.h>
+
 using namespace std;
 using namespace sf;
 
 int n0(int x)
 {
-	if (x == 0)
-		x = 1;
-
-	return x;
+	return x == 0 ? 1 : x;
 }
 int whatsthetype(int x, int y, Biom *biom, int size)
 {
@@ -62,7 +60,7 @@ int whatsthetype(int x, int y, Biom *biom, int size)
 	}
 	return biom[h].Bioms_block;
 }
-void randomxy(vector<vector<Block*>> arr, int max, Biom *biom)
+void randomxy(vector<vector<Block *>> arr, int max, Biom *biom)
 {
 	for (int o = 0; o < 100; o++)
 	{
@@ -101,6 +99,8 @@ void randomxy(vector<vector<Block*>> arr, int max, Biom *biom)
 			if (rand() % 10 != 0)
 				arr[j][i] = (fabrica::create(tmptyp));
 		}
+
 		// cout<<"1"<<endl;
 	}
+	// cout << "10" << endl;
 }

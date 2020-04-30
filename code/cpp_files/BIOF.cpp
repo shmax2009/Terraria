@@ -31,6 +31,7 @@ void open_or_create_all(ifstream &fin, ofstream &fout, vector<vector<Block*>> ar
 	if (emp(fin))
 	{
 		randomxy(arr, col_material,biom);
+		cout<<"9"<<endl;
 		fout.open("/home/max/learn_c/Teraria/Maps/map.txt", ofstream::app);
 		cinmap(arr, fout);
 		fout.close();

@@ -33,7 +33,7 @@ void cinmap(vector<vector<Block*>> arr, ofstream &fout)
 		for (int j = 0; j < GV::y; j++)
 		{
 			arr[i][j]=(fabrica::create(0));
-			cout<<arr[i][j]->getType()<<endl; //.serialaze(fout);
+			// cout<<arr[i][j]->getType()<<endl; //.serialaze(fout);
 			// fout.write(buff,)
 		}
 	}

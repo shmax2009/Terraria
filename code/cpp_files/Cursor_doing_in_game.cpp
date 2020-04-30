@@ -42,7 +42,7 @@
 using namespace std;
 using namespace sf;
 
-void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inventory *inventor, vector<vector<Block*>> arr, Sprite Frame, Sprite Cursor, int n, Hero &h)
+void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inventory *inventor, vector<vector<Block*> > arr, Sprite Frame, Sprite Cursor, int n, Hero &h)
 {
     int xmc;
     int ymc;
