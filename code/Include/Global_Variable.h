@@ -16,9 +16,9 @@ using namespace sf;
 class GV
 {
 	public:
-		static const int x;
-		static const int y;
-		static const float size;
+		static  int x;
+		static  int y;
+		static  float size;
 		static bool timeforjump;
 		static bool isitendofjump;
 		static float vect;

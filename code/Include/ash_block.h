@@ -1,11 +1,17 @@
 #include <Class_Block.h>
+#include <fstream>
 #ifndef ASH_BLOCK_H
 #define ASH_BLOCK_H
-class Ash_Block: public Block
-{  
-private:
-    const int type = 10;
-    public:
-    int getType();
+using namespace std;
+class Ash_Block : public Block
+{
+
+    
+
+public:
+ int type = 10;
+int getType();
+void serialaze(ofstream &fout);
+void deserialaze(ifstream &fin);
 };
 #endif

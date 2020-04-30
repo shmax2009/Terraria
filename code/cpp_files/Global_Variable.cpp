@@ -11,9 +11,9 @@
 using namespace std;
 using namespace sf;
 
-const int GV::x = 8326;
-const int GV::y = 4963;
-const float GV::size = 3.0;
+ int GV::x = 8326;
+ int GV::y = 4963;
+ float GV::size = 3.0;
 bool GV::timeforjump=false;
 bool GV::isitendofjump=true;
 float GV::vect=0;

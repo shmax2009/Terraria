@@ -1,11 +1,15 @@
 #include <Class_Block.h>
+#include <fstream>
 #ifndef CRIMSAND_BLOCK_H
 #define CRIMSAND_BLOCK_H
-class Crimsand_Block: public Block
-{  
-private:
-    const int type = 7;
-    public:
+using namespace std;
+class Crimsand_Block : public Block
+{
+
+public:
+    int type = 7;
     int getType();
+    void serialaze(ofstream &fout);
+    void deserialaze(ifstream &fin);
 };
 #endif

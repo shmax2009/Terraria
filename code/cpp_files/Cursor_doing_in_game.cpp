@@ -10,7 +10,7 @@
 #include <Class_Inventory.h>
 #include <Global_Variable.h>
 #include <Class_Hero.h>
-#include <Fabrica.h>
+#include <fabrica.h>
 
 #include <sky_block.h>
 #include <ground_block.h>
@@ -42,7 +42,7 @@
 using namespace std;
 using namespace sf;
 
-void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inventory *inventor, Block **arr, Sprite Frame, Sprite Cursor, int n, Hero &h)
+void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inventory *inventor, vector<vector<Block*>> arr, Sprite Frame, Sprite Cursor, int n, Hero &h)
 {
     int xmc;
     int ymc;
@@ -60,25 +60,25 @@ void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inv
 
         if (Mouse::isButtonPressed(Mouse::Left))
         {
-            if ((arr[xmc][ymc].getType() != 0) && (freeInventor(inventor, arr[xmc][ymc].getType()) < 8))
+            if ((arr[xmc][ymc]->getType() != 0) && (freeInventor(inventor, arr[xmc][ymc]->getType()) < 8))
             {
-                if (arr[xmc][ymc].getType() == 26)
-                    arr[xmc][ymc]=*(Fabrica::create(1));
+                if (arr[xmc][ymc]->getType() == 26)
+                    arr[xmc][ymc]=(fabrica::create(1));
 
-                inventor[freeInventor(inventor, arr[xmc][ymc].getType())].type = arr[xmc][ymc].getType();
-                inventor[freeInventor(inventor, arr[xmc][ymc].getType())].col++;
+                inventor[freeInventor(inventor, arr[xmc][ymc]->getType())].type = arr[xmc][ymc]->getType();
+                inventor[freeInventor(inventor, arr[xmc][ymc]->getType())].col++;
 
-                arr[xmc][ymc] = *(Fabrica::create(0));
+                arr[xmc][ymc] = (fabrica::create(0));
             }
         }
 
         if (Mouse::isButtonPressed(Mouse::Right))
         {
-            if ((arr[xmc][ymc + 1].getType()) || (arr[xmc][ymc - 1].getType()) || (arr[xmc + 1][ymc].getType()) || (arr[xmc - 1][ymc].getType()) || (arr[xmc + 1][ymc - 1].getType()) || (arr[xmc + 1][ymc + 1].getType()) || (arr[xmc - 1][ymc + 1].getType()) || (arr[xmc - 1][ymc - 1].getType()))
+            if ((arr[xmc][ymc + 1]->getType()) || (arr[xmc][ymc - 1]->getType()) || (arr[xmc + 1][ymc]->getType()) || (arr[xmc - 1][ymc]->getType()) || (arr[xmc + 1][ymc - 1]->getType()) || (arr[xmc + 1][ymc + 1]->getType()) || (arr[xmc - 1][ymc + 1]->getType()) || (arr[xmc - 1][ymc - 1]->getType()))
             {
-                if (arr[xmc][ymc].getType() == 0)
+                if (arr[xmc][ymc]->getType() == 0)
                 {
-                    arr[xmc][ymc] = *(Fabrica::create(inventor[n].type));
+                    arr[xmc][ymc] = (fabrica::create(inventor[n].type));
 
                     inventor[n].col--;
                 }

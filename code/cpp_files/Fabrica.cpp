@@ -1,4 +1,4 @@
-#include <Fabrica.h>
+#include <fabrica.h>
 #include <Class_Block.h>
 #include <iostream>
 #include <sky_block.h>
@@ -28,7 +28,7 @@
 #include <adamantite_block.h>
 #include <night_block.h>
 #include <grass_block.h>
-Block* Fabrica::create(int i)
+Block* fabrica::create(int i)
 {
     
     Block *p;

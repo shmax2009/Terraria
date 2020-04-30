@@ -41,11 +41,11 @@
 #include <adamantite_block.h>
 #include <night_block.h>
 #include <grass_block.h>
-#include <Fabrica.h>
+#include <fabrica.h>
 using namespace std;
 using namespace sf;
 // Please, redo everything
-void drawWorld(RenderWindow &window, Block **arr, Texture *world_texture, float rt, float gt)
+void drawWorld(RenderWindow &window, vector<vector<Block*>> arr, Texture *world_texture, float rt, float gt)
 {
     int r=(round(rt));
     int g=(round(gt));
@@ -53,12 +53,12 @@ void drawWorld(RenderWindow &window, Block **arr, Texture *world_texture, float 
     {
         for (int j = abs(g) * GV::size / 48; j < abs(abs(g) + 200) * GV::size / 48; j++)
         {
-            if ((arr[i][j].getType() == 1 || arr[i][j].getType() == 26))
+            if ((arr[i][j]->getType() == 1 || arr[i][j]->getType() == 26))
 			{
-                if(arr[i][j-1].getType() == 0) 
-					arr[i][j]= *(Fabrica::create(26)); 
+                if(arr[i][j-1]->getType() == 0) 
+					arr[i][j]= (fabrica::create(26)); 
 				else
-                	arr[i][j]=*(Fabrica::create(1));
+                	arr[i][j]=(fabrica::create(1));
             }
 
             float tmpx = i * (24 / GV::size) + (r * 1);
@@ -67,9 +67,9 @@ void drawWorld(RenderWindow &window, Block **arr, Texture *world_texture, float 
             if (((tmpx > -20) && (tmpx < 220)) && ((tmpy > -20) && (tmpy < 220)))
             {
                 Sprite tmp;
-                if(arr[i][j].getType()==0){
+                if(arr[i][j]->getType()==0){
                 if(GV::day==0)
-                tmp.setTexture(world_texture[arr[i][j].getType()]);
+                tmp.setTexture(world_texture[arr[i][j]->getType()]);
                 else
                 {
                 tmp.setTexture(world_texture[25]);  
@@ -77,7 +77,7 @@ void drawWorld(RenderWindow &window, Block **arr, Texture *world_texture, float 
                 }
                 else
                 {
-                    tmp.setTexture(world_texture[arr[i][j].getType()]);
+                    tmp.setTexture(world_texture[arr[i][j]->getType()]);
                 }
                 
                 

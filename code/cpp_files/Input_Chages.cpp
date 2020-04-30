@@ -24,7 +24,7 @@
 using namespace std;
 using namespace sf;
 
-void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &fin,Block **arr, Hero &h, Inventory *inventor, int &n, int &rotation, int &numb)
+void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &fin,vector<vector<Block*>> arr, Hero &h, Inventory *inventor, int &n, int &rotation, int &numb)
 {
     // FIXME: Comment
 
@@ -32,7 +32,7 @@ void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &
     {
         if (event[0].type == Event::Closed)
         {
-            fout.open("/home/max/learn_c/Teraria/Maps/map.bin", ofstream::out);
+            fout.open("/home/max/learn_c/Teraria/Maps/map.txt", ofstream::out);
             cinmap(arr, fout);
             fout.close();
 

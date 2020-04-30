@@ -47,7 +47,7 @@ class Hero
 		float t;
 		int ro=r;
 		int to=t;
-	void fythics_position(int gravity ,Block **arr);
+	void fythics_position(int gravity ,vector<vector<Block*>> arr);
 	
 };
 

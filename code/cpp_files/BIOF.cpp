@@ -24,14 +24,14 @@
 using namespace std;
 using namespace sf;
 
-void open_or_create_all(ifstream &fin, ofstream &fout, Block **arr, int col_material, Hero &h, Inventory *inventor,Biom *biom)
+void open_or_create_all(ifstream &fin, ofstream &fout, vector<vector<Block*>> arr, int col_material, Hero &h, Inventory *inventor,Biom *biom)
 {
-	// fin.open("/home/max/learn_c/Teraria/Maps/map.bin");
+	// fin.open("/home/max/learn_c/Teraria/Maps/map.txt");
 
 	if (emp(fin))
 	{
 		randomxy(arr, col_material,biom);
-		fout.open("/home/max/learn_c/Teraria/Maps/map.bin", ofstream::app);
+		fout.open("/home/max/learn_c/Teraria/Maps/map.txt", ofstream::app);
 		cinmap(arr, fout);
 		fout.close();
 	}

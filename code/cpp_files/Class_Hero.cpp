@@ -49,7 +49,7 @@
 using namespace std;
 using namespace sf;
 
-void Hero::fythics_position(int gravity, Block **arr)
+void Hero::fythics_position(int gravity, vector<vector<Block*>> arr)
 { 
     int xmc;
     int ymc;
@@ -59,6 +59,6 @@ void Hero::fythics_position(int gravity, Block **arr)
     // cout<<xmc<<" "<<ymc<<round(r)<<round(t)<<endl;
     to=t;
     t -= (float)gravity;
-    if (arr[xmc][ymc].getType() != 0)
+    if (arr[xmc][ymc]->getType() != 0)
         t += (float)gravity;
 }

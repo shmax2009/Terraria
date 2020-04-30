@@ -1,11 +1,15 @@
 #include <Class_Block.h>
+#include <fstream>
 #ifndef GOLD_BLOCK_H
 #define GOLD_BLOCK_H
-class Gold_Block :public Block
-{  
-private:
-    const int type = 17;
-    public:
+using namespace std;
+class Gold_Block : public Block
+{
+
+public:
+    int type = 17;
     int getType();
+    void serialaze(ofstream &fout);
+    void deserialaze(ifstream &fin);
 };
 #endif

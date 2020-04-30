@@ -16,6 +16,6 @@ using namespace std;
 using namespace sf;
 
 // you should definitely split this function into smaller once
-void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inventory *inventor, Block **arr, Sprite Frame, Sprite Cursor, int n,Hero &h);
+void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inventory *inventor, vector<vector<Block*>> arr, Sprite Frame, Sprite Cursor, int n,Hero &h);
 
 #endif

@@ -86,7 +86,7 @@ int what_nymber_of_inventor(Event *event, int on)
     return n;
 }
 
-void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb, Block **arr)
+void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb, vector<vector<Block*>> arr)
 {
     h.ro = h.r;
     h.to = h.t;
@@ -100,7 +100,7 @@ void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb, B
         xmc = (int)(105 - trunc(h.r)) / (24 / GV::size);
         ymc = (int)(105 - trunc(h.t)) / (48 / GV::size);
 
-        if (arr[xmc][ymc].getType() == 0)
+        if (arr[xmc][ymc]->getType() == 0)
 
             h.r -= 2.0;
         rotation = 1;
@@ -115,7 +115,7 @@ void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb, B
         xmc = (int)(100 - trunc(h.r)) / (24 / GV::size);
         ymc = (int)(105 - trunc(h.t)) / (48 / GV::size);
 
-        if (arr[xmc][ymc].getType() == 0)
+        if (arr[xmc][ymc]->getType() == 0)
 
             h.r += 2.0;
         rotation = -1;
@@ -130,7 +130,7 @@ void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb, B
         xmc = (int)(100 - trunc(h.r)) / (24 / GV::size);
         ymc = (int)(95 - trunc(h.t)) / (48 / GV::size);
 
-        if (arr[xmc][ymc].getType() == 0)
+        if (arr[xmc][ymc]->getType() == 0)
             GV::timeforjump = true;
     }
 }

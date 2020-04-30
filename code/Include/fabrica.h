@@ -1,4 +1,3 @@
-// #include <Fabrica.h>
 #include <Class_Block.h>
 #include <iostream>
 #include <sky_block.h>
@@ -10,7 +9,7 @@
 #include <crimsand_block.h>
 #include <pearlsand_block.h>
 #include <clay_block.h>
-#include <ash_block.h>
+#include <ash_block.h> 
 #include <ebonstone_block.h>
 #include <glass_block.h>
 #include <spike_block.h>
@@ -27,10 +26,12 @@
 #include <adamantite_block.h>
 #include <night_block.h>
 #include <grass_block.h>
-class Fabrica
+#ifndef FABRICA_H
+#define FABRICA_H
+
+class fabrica
 {
 public:
     static Block* create(int i);
-
-    
 };
+#endif

@@ -48,7 +48,8 @@
 #include <adamantite_block.h>
 #include <night_block.h>
 #include <grass_block.h>
-#include <Fabrica.h>
+#include <fabrica.h>
+// #include <cstdlib>
 void Game::play()
 {
 	Music_of_game music;
@@ -78,13 +79,24 @@ void Game::play()
 
 	Hero h;
 	Inventory inventor[8];
+	// Block *g = (fabrica::create(0));
 
-	Block **arr = new Block *[GV::x];
+	// cout<<g->getType()<<endl;
+	// vector<vector<Block*>> arr = new Block *[GV::x];
+	vector<vector<Block*>> arr;
 
 	for (int i = 0; i < GV::x; i++)
+	{
+		vector<Block*> b;
 		for (int j = 0; j < GV::y; j++)
-			arr[i][j] = *(Fabrica::create(0));
-
+		{
+			b.clear();
+			Block *g=fabrica::create(0);
+			b.push_back(g);
+		}
+		arr.push_back(b);
+	}
+	cout<<"1"<<endl;
 	Texture Cursor_texture;
 	Texture Frame_texture;
 
@@ -98,7 +110,7 @@ void Game::play()
 	anim_her.takeit(siz, color);
 
 	open_or_create_all(fin, fout, arr, col_material, h, inventor, biom);
-
+    cout<<"8"<<endl;
 	Cursor_texture.loadFromFile("/home/max/learn_c/Teraria/Resurce/Cursor.png");
 	Frame_texture.loadFromFile("/home/max/learn_c/Teraria/Resurce/Frame.png");
 
@@ -116,6 +128,7 @@ void Game::play()
 	int procent = 0;
 	int iterator = 40;
 	int it = 0;
+	cout<<"2"<<endl;
 	while (window.isOpen())
 	{
 
@@ -157,9 +170,9 @@ void Game::play()
 		iterator++;
 		it++;
 		music.Music_play(it, h, biom);
-	}
-	for (int i = 0; i < GV::x; i++)
-		delete[] arr[i];
 
-	delete[] arr;
+	}
+	cout<<"3"<<endl;
+	arr.clear();
+	
 }

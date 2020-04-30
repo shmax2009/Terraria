@@ -37,7 +37,7 @@
 #include <adamantite_block.h>
 #include <night_block.h>
 #include <grass_block.h>
-#include <Fabrica.h>
+#include <fabrica.h>
 using namespace std;
 using namespace sf;
 
@@ -62,13 +62,13 @@ int whatsthetype(int x, int y, Biom *biom, int size)
 	}
 	return biom[h].Bioms_block;
 }
-void randomxy(Block **arr, int max, Biom *biom)
+void randomxy(vector<vector<Block*>> arr, int max, Biom *biom)
 {
 	for (int o = 0; o < 100; o++)
 	{
 		for (int g = 0; g < GV::x; g++)
 		{
-			arr[g][o] = *(Fabrica::create(0));
+			arr[g][o] = (fabrica::create(0));
 		}
 	}
 
@@ -77,7 +77,7 @@ void randomxy(Block **arr, int max, Biom *biom)
 		for (int g = 0; g < GV::x; g++)
 		{
 			int tmptyp = whatsthetype(g, o, biom, 3);
-			arr[g][o] = *(Fabrica::create(tmptyp));
+			arr[g][o] = (fabrica::create(tmptyp));
 		}
 	}
 
@@ -86,9 +86,9 @@ void randomxy(Block **arr, int max, Biom *biom)
 		for (int g = 0; g < GV::x; g++)
 		{
 			if (rand() % 10 == 0)
-				arr[g][o] = *(Fabrica::create(0));
+				arr[g][o] = (fabrica::create(0));
 			else
-				arr[g][o] = *(Fabrica::create(random() % 4 + 1));
+				arr[g][o] = (fabrica::create(random() % 4 + 1));
 		}
 	}
 	// cout<<"1"<<endl;
@@ -96,10 +96,10 @@ void randomxy(Block **arr, int max, Biom *biom)
 	{
 		for (int j = 0; j < GV::x; j++)
 		{
-			arr[j][i] = *(Fabrica::create(rand() % (int)n0(abs(trunc(2 + i / 10.0 - 2)))));
+			arr[j][i] = (fabrica::create(rand() % (int)n0(abs(trunc(2 + i / 10.0 - 2)))));
 			int tmptyp = whatsthetype(j, i, biom, 3);
 			if (rand() % 10 != 0)
-				arr[j][i] = *(Fabrica::create(tmptyp));
+				arr[j][i] = (fabrica::create(tmptyp));
 		}
 		// cout<<"1"<<endl;
 	}

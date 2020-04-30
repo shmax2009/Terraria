@@ -17,7 +17,7 @@ release: $(OBJECTS)
 	g++ -o Terraria $(OBJECTS) $(LIBS) $(FLAGS) $(RELEASE)
 
 Terraria: $(OBJECTS)
-	g++ -o Terraria $(OBJECTS) $(LIBS) $(FLAGS) $(LDFLAGS)
+	g++ -o Terraria $(OBJECTS) $(LIBS) $(FLAGS) $(LDFLAGS) 
 
 # maybe a recursive loop through dirs?
 #						  |  

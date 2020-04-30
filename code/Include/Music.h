@@ -10,7 +10,7 @@ using namespace sf;
 #define MUSIC_H
 class Music_of_game
 {
-private:
+
 Music music[4];
 public:
 	void conect();

@@ -56,12 +56,12 @@ using namespace sf;
 
 class Game
 {
-private:
+
     default_random_engine generator;
     WT wt;
 
-    const float FPS = 120.0f;
-    const int col_material = 25;
+     float FPS = 120.0f;
+     int col_material = 25;
 
 public:
     void play();

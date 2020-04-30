@@ -45,7 +45,7 @@
 using namespace std;
 using namespace sf;
 
-void drawWorld(RenderWindow &window, Block **arr, Texture *world_texture, float rt, float gt);
+void drawWorld(RenderWindow &window, vector<vector<Block*>> arr, Texture *world_texture, float rt, float gt);
 
 void DrawInventor(RenderWindow &window, Texture *world, Inventory *inventor);
 
