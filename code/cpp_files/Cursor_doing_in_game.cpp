@@ -42,7 +42,7 @@
 using namespace std;
 using namespace sf;
 
-void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inventory *inventor, vector<vector<Block*> > arr, Sprite Frame, Sprite Cursor, int n, Hero &h)
+void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inventory *inventor, vector<vector<Block *>> arr, Sprite Frame, Sprite Cursor, int n, Hero &h)
 {
     int xmc;
     int ymc;
@@ -63,11 +63,11 @@ void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inv
             if ((arr[xmc][ymc]->getType() != 0) && (freeInventor(inventor, arr[xmc][ymc]->getType()) < 8))
             {
                 if (arr[xmc][ymc]->getType() == 26)
-                    arr[xmc][ymc]=(fabrica::create(1));
+                    arr[xmc][ymc] = (fabrica::create(1));
 
                 inventor[freeInventor(inventor, arr[xmc][ymc]->getType())].type = arr[xmc][ymc]->getType();
                 inventor[freeInventor(inventor, arr[xmc][ymc]->getType())].col++;
-
+                delete arr[xmc][ymc];
                 arr[xmc][ymc] = (fabrica::create(0));
             }
         }
@@ -78,6 +78,7 @@ void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inv
             {
                 if (arr[xmc][ymc]->getType() == 0)
                 {
+                    delete arr[xmc][ymc];
                     arr[xmc][ymc] = (fabrica::create(inventor[n].type));
 
                     inventor[n].col--;

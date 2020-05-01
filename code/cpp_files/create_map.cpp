@@ -66,23 +66,30 @@ void randomxy(vector<vector<Block *>> arr, int max, Biom *biom)
 	{
 		for (int g = 0; g < GV::x; g++)
 		{
+			delete arr[g][o];
 			arr[g][o] = (fabrica::create(0));
+			// cout<<0;
 		}
+		// cout<<endl;
 	}
 
 	for (int o = 100; o < 110; o++)
 	{
 		for (int g = 0; g < GV::x; g++)
 		{
+			delete arr[g][o];
 			int tmptyp = whatsthetype(g, o, biom, 3);
 			arr[g][o] = (fabrica::create(tmptyp));
+			// cout<<tmptyp;
 		}
+		// cout<<endl;
 	}
 
 	for (int o = 110; o < 140; o++)
 	{
 		for (int g = 0; g < GV::x; g++)
 		{
+			delete arr[g][o];
 			if (rand() % 10 == 0)
 				arr[g][o] = (fabrica::create(0));
 			else
@@ -94,10 +101,16 @@ void randomxy(vector<vector<Block *>> arr, int max, Biom *biom)
 	{
 		for (int j = 0; j < GV::x; j++)
 		{
-			arr[j][i] = (fabrica::create(rand() % (int)n0(abs(trunc(2 + i / 10.0 - 2)))));
+			delete arr[j][i];
 			int tmptyp = whatsthetype(j, i, biom, 3);
 			if (rand() % 10 != 0)
+			{
 				arr[j][i] = (fabrica::create(tmptyp));
+			}
+			else
+			{
+				arr[j][i] = (fabrica::create(rand() % (int)n0(abs(trunc(2 + i / 10.0 - 2)))));
+			}
 		}
 
 		// cout<<"1"<<endl;

@@ -18,7 +18,6 @@ public:
     int arr;
     char c = '5';
 
-
     void getType()
     {
         cout << type << endl;
@@ -55,7 +54,7 @@ public:
 class Fabric
 {
 public:
-    static Numbers *crete(int i)
+    static Numbers *create(int i)
     {
         Numbers *p;
         switch (i)
@@ -82,41 +81,47 @@ bool emp(ifstream &pFile)
 int main()
 {
     srand(static_cast<unsigned int>(time(0)));
-    Numbers **arr = new Numbers *[5];
+    // Numbers **arr = new Numbers *[5];
+    vector<Numbers *> arr;
+    for (int i = 0; i < 5; i++)
+    {
+        Numbers *n;
+        n = Fabric::create(1);
+        arr.push_back(n);
+    }
     ofstream fout;
     ifstream fin;
 
-   fin.open("./test.txt");
-    if (emp(fin))
-    {
+    //    fin.open("./test.txt");
+    //     if (emp(fin))
+    //     {
 
-        fout.open("./test.txt");
+    // fout.open("./test.txt");
 
-        for (int i = 0; i < 5; i++)
-        {
-
-            arr[i] = Fabric::crete(rand() % 2 + 1);
-            arr[i]->serialaze(fout);
-        }
-        fout.close();
-    }
-    else
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            int t = 0;
-            fin >> t;
-            arr[i] = Fabric::crete(t);
-            // cout<<t<<endl;
-            arr[i]->deserialaze(fin);
-            // arr[i]->getType();
-        }
-        fin.close();
-    }
     for (int i = 0; i < 5; i++)
     {
 
-    
+        arr[i] = Fabric::create(1);
+        // arr[i]->serialaze(fout);
+    }
+    //     fout.close();
+    // }
+    // else
+    // {
+    //     for (int i = 0; i < 5; i++)
+    //     {
+    //         int t = 0;
+    //         fin >> t;
+    //         arr[i] = Fabric::crete(t);
+    //         cout<<t<<endl;
+    //         arr[i]->deserialaze(fin);
+    //         // arr[i]->getType();
+    //     }
+    //     fin.close();
+    // }
+    for (int i = 0; i < 5; i++)
+    {
+        arr[i] = Fabric::create(1);
     }
     for (int i = 0; i < 5; i++)
     {
