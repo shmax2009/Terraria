@@ -8,7 +8,7 @@ int Clay_Block::getType()
 }
 void Clay_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Clay_Block::deserialaze(ifstream &fin)
 {

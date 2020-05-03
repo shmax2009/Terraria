@@ -6,7 +6,7 @@ int Silver_Block::getType()
 }
 void Silver_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Silver_Block::deserialaze(ifstream &fin)
 {

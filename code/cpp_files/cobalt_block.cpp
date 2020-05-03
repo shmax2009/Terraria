@@ -7,7 +7,7 @@ int Cobalt_Block::getType()
 }
 void Cobalt_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Cobalt_Block::deserialaze(ifstream &fin)
 {

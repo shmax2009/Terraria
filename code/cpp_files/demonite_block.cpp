@@ -7,7 +7,7 @@ int Demonite_Block::getType()
 }
 void Demonite_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Demonite_Block::deserialaze(ifstream &fin)
 {

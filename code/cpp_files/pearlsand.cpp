@@ -9,7 +9,8 @@ int Pearlsand_Block::getType()
 }
 void Pearlsand_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
+     
 }
 void Pearlsand_Block::deserialaze(ifstream &fin)
 {

@@ -17,14 +17,15 @@
 #include <Cursor_doing_in_game.h>
 #include <Textur_Terrain.h>
 #include <fabrica.h>
+#include <vector>
 
 using namespace std;
 using namespace sf;
 
 bool emp(std::ifstream &pFile);
 
-void cinmap(vector<vector<Block*>> arr, ofstream &fout);
-void coutmap(vector<vector<Block*>> arr, ifstream &fin);
+void cinmap(vector<vector<Block*> > arr, ofstream &fout);
+void coutmap(vector<vector<Block*> > arr, ifstream &fin);
 
 void saveInventory(Inventory *Inventor, ofstream &fout);
 void openInventory(Inventory *Inventor, ifstream &fin);

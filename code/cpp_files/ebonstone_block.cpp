@@ -7,7 +7,7 @@ int Ebonstone_Block::getType()
 }
 void Ebonstone_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Ebonstone_Block::deserialaze(ifstream &fin)
 {

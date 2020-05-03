@@ -7,7 +7,7 @@ int Obsidian_Block::getType()
 }
 void Obsidian_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Obsidian_Block::deserialaze(ifstream &fin)
 {

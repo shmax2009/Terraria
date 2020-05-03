@@ -18,6 +18,7 @@
 #include <Cursor_doing_in_game.h>
 #include <Textur_Terrain.h>
 #include <Class_Hero.h>
+#include <vector>
 
 // 0.5 1
 // gimp 48 48

@@ -6,7 +6,7 @@ int Glass_Block::getType()
 }
 void Glass_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Glass_Block::deserialaze(ifstream &fin)
 {

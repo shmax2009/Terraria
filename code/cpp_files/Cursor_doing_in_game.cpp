@@ -4,7 +4,7 @@
 #include <math.h>
 #include <fstream>
 #include <stdio.h>
-
+#include <vector>
 #include <Cursor_doing_in_game.h>
 #include <Class_Block.h>
 #include <Class_Inventory.h>
@@ -37,7 +37,7 @@
 #include <Mythril_block.h>
 #include <adamantite_block.h>
 #include <night_block.h>
-#include <grass_block.h>
+//#include <grass_block.h>
 
 using namespace std;
 using namespace sf;
@@ -62,8 +62,7 @@ void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inv
         {
             if ((arr[xmc][ymc]->getType() != 0) && (freeInventor(inventor, arr[xmc][ymc]->getType()) < 8))
             {
-                if (arr[xmc][ymc]->getType() == 26)
-                    arr[xmc][ymc] = (fabrica::create(1));
+         
 
                 inventor[freeInventor(inventor, arr[xmc][ymc]->getType())].type = arr[xmc][ymc]->getType();
                 inventor[freeInventor(inventor, arr[xmc][ymc]->getType())].col++;

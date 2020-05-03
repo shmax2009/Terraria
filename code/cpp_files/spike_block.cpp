@@ -7,7 +7,7 @@ int Spike_Block::getType()
 }
 void Spike_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Spike_Block::deserialaze(ifstream &fin)
 {

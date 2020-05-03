@@ -7,7 +7,7 @@ int Cobwet_Block::getType()
 }
 void Cobwet_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Cobwet_Block::deserialaze(ifstream &fin)
 {

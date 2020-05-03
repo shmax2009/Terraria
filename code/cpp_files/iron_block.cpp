@@ -7,7 +7,7 @@ int Iron_Block::getType()
 }
 void Iron_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Iron_Block::deserialaze(ifstream &fin)
 {

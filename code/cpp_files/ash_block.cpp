@@ -7,7 +7,7 @@ int Ash_Block::getType()
 }
 void Ash_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Ash_Block::deserialaze(ifstream &fin)
 {

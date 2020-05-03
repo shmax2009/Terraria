@@ -7,7 +7,7 @@ int Stone_Block::getType()
 }
 void Stone_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Stone_Block::deserialaze(ifstream &fin)
 {

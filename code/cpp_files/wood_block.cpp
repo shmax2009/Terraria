@@ -7,7 +7,7 @@ int Wood_Block::getType()
 }
 void Wood_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Wood_Block::deserialaze(ifstream &fin)
 {

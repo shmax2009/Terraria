@@ -7,7 +7,7 @@ int Gold_Block::getType()
 }
 void Gold_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Gold_Block::deserialaze(ifstream &fin)
 {

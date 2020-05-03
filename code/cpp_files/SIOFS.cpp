@@ -4,15 +4,15 @@
 #include <random>
 #include <string>
 #include <math.h>
-
+#include <vector>
 #include <Class_Block.h>
 #include <Class_Inventory.h>
 #include <All_Function.h>
 #include <Global_Variable.h>
 #include <create_map.h>
 #include <Draw.h>
-#include <Cursor_doing_in_game.h>
-#include <Textur_Terrain.h>
+// #include <Cursor_doing_in_game.h>
+// #include <Textur_Terrain.h>
 #include <SIOFS.h>
 #include <fabrica.h>
 
@@ -25,16 +25,15 @@ bool emp(ifstream &pFile)
 	// return pFile.peek() == EOF; ?
 }
 
-void cinmap(vector<vector<Block*>> arr, ofstream &fout)
+void cinmap(vector<vector<Block *>> arr, ofstream &fout)
 {
-	// remove("/home/max/learn_c/Teraria/Maps/map.txt");
 	for (int i = 0; i < GV::x; i++)
 	{
 		for (int j = 0; j < GV::y; j++)
 		{
-			arr[i][j]=(fabrica::create(0));
-			// cout<<arr[i][j]->getType()<<endl; //.serialaze(fout);
-			// fout.write(buff,)
+
+			// cout << i << " " << j << " " << arr[i][j]->getType() << endl;
+			// arr[i][j]->serialaze(fout);
 		}
 	}
 }
@@ -55,7 +54,7 @@ void openInventory(Inventory *Inventor, ifstream &fin)
 	}
 }
 
-void coutmap(vector<vector<Block*>> arr, ifstream &fin)
+void coutmap(vector<vector<Block *>> arr, ifstream &fin)
 {
 	for (int i = 0; i < GV::x; i++)
 	{
@@ -64,6 +63,7 @@ void coutmap(vector<vector<Block*>> arr, ifstream &fin)
 			// fin.read((char*)&arr[i][j], sizeof(Block));
 			int t;
 			fin >> t;
+			// delete arr[i][j];
 			arr[i][j] = (fabrica::create(t));
 			arr[i][j]->deserialaze(fin);
 		}

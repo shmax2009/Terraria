@@ -7,7 +7,7 @@ int Mythril_Block::getType()
 }
 void Mythril_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Mythril_Block::deserialaze(ifstream &fin)
 {

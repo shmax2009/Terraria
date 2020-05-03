@@ -7,7 +7,7 @@ int Copper_Block::getType()
 }
 void Copper_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Copper_Block::deserialaze(ifstream &fin)
 {

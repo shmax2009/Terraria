@@ -38,12 +38,13 @@
 #include <Mythril_block.h>
 #include <adamantite_block.h>
 #include <night_block.h>
-#include <grass_block.h>
+//#include <grass_block.h>
+#include <vector>
 using namespace std;
 using namespace sf;
 
 int n0(int x);
 int whatsthetype(int x, int y, Biom *biom, int size);
-void randomxy(vector<vector<Block*>> arr, int max,Biom *biom);
+void randomxy(vector<vector<Block*>> arr, int max,Biom* Biom);
 
 #endif

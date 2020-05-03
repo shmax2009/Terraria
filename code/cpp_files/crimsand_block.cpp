@@ -7,7 +7,7 @@ int Crimsand_Block::getType()
 }
 void Crimsand_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Crimsand_Block::deserialaze(ifstream &fin)
 {

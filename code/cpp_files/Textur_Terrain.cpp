@@ -40,5 +40,5 @@ void WT::connect()
 	world_texture[23].loadFromFile("/home/max/learn_c/Teraria/Resurce/Blocks/Mythril.png");
 	world_texture[24].loadFromFile("/home/max/learn_c/Teraria/Resurce/Blocks/Adamantite.png");
 	world_texture[25].loadFromFile("/home/max/learn_c/Teraria/Resurce/Blocks/black.png");
-	world_texture[26].loadFromFile("/home/max/learn_c/Teraria/Resurce/Blocks/Ground_with_Grass.png");
+	// world_texture[26].loadFromFile("/home/max/learn_c/Teraria/Resurce/Blocks/Ground_with_Grass.png");
 }

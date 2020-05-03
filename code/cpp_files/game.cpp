@@ -21,7 +21,7 @@
 #include <Class_Biom.h>
 #include <Music.h>
 #include <game.h>
-
+#include <vector>
 #include <sky_block.h>
 #include <ground_block.h>
 #include <stone_block.h>
@@ -47,7 +47,7 @@
 #include <Mythril_block.h>
 #include <adamantite_block.h>
 #include <night_block.h>
-#include <grass_block.h>
+//#include <grass_block.h>
 #include <fabrica.h>
 // #include <cstdlib>
 void Game::play()
@@ -67,6 +67,8 @@ void Game::play()
 
 	RenderWindow window(VideoMode(200, 200), "Terraria");
 	window.setMouseCursorVisible(false);
+	View view;
+
 	window.setFramerateLimit(FPS);
 	Biom biom[3];
 	biom[0].generate(0, 0, GV::x / 2 - 4000, GV::y, Desert);
@@ -79,11 +81,7 @@ void Game::play()
 
 	Hero h;
 	Inventory inventor[8];
-	// Block *g = (fabrica::create(0));
-
-	// cout<<g->getType()<<endl;
-	// vector<vector<Block*>> arr = new Block *[GV::x];
-	vector<vector<Block*> > arr;
+	vector<vector<Block *>>arr;
 
 	for (int i = 0; i < GV::x; i++)
 	{
@@ -92,9 +90,13 @@ void Game::play()
 		{
 			Block *g = fabrica::create(1);
 			b.push_back(g);
+			// if(j==) cout<<"hi"<<endl;
 		}
 		arr.push_back(b);
+		// if(i == 7000) cout<<"dgf"<<endl;
+
 	}
+
 	cout << "1" << endl;
 	Texture Cursor_texture;
 	Texture Frame_texture;

@@ -19,6 +19,7 @@
 #include <Textur_Terrain.h>
 #include <BIOF.h>
 #include <Class_Hero.h>
+#include <vector>
 
 // 0.5 1
 // gimp 48 48

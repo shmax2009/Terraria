@@ -7,7 +7,7 @@
 #include <math.h>
 #include <fstream>
 #include <stdio.h>
-
+#include <vector>
 #include <Class_Block.h>
 #include <Class_Inventory.h>
 #include <Global_Variable.h>

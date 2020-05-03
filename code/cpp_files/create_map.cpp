@@ -36,7 +36,7 @@
 #include <Mythril_block.h>
 #include <adamantite_block.h>
 #include <night_block.h>
-#include <grass_block.h>
+//#include <grass_block.h>
 #include <fabrica.h>
 
 using namespace std;
@@ -60,7 +60,7 @@ int whatsthetype(int x, int y, Biom *biom, int size)
 	}
 	return biom[h].Bioms_block;
 }
-void randomxy(vector<vector<Block *>> arr, int max, Biom *biom)
+void randomxy(vector<vector<Block*>> arr, int max, Biom *biom)
 {
 	for (int o = 0; o < 100; o++)
 	{
@@ -97,6 +97,7 @@ void randomxy(vector<vector<Block *>> arr, int max, Biom *biom)
 		}
 	}
 	// cout<<"1"<<endl;
+	cout<<"h"<<endl;
 	for (int i = 140; i < GV::y; i++)
 	{
 		for (int j = 0; j < GV::x; j++)
@@ -115,5 +116,5 @@ void randomxy(vector<vector<Block *>> arr, int max, Biom *biom)
 
 		// cout<<"1"<<endl;
 	}
-	// cout << "10" << endl;
+	cout << "10" << endl;
 }

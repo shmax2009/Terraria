@@ -7,7 +7,7 @@ int Sand_Block::getType()
 }
 void Sand_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Sand_Block::deserialaze(ifstream &fin)
 {

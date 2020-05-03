@@ -7,7 +7,7 @@ int Hellstone_Block::getType()
 }
 void Hellstone_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Hellstone_Block::deserialaze(ifstream &fin)
 {

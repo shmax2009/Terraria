@@ -7,7 +7,7 @@ int Ground_Block::getType()
 }
 void Ground_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Ground_Block::deserialaze(ifstream &fin)
 {

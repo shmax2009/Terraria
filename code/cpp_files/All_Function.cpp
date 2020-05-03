@@ -4,7 +4,7 @@
 #include <math.h>
 #include <fstream>
 #include <stdio.h>
-
+#include <vector>
 #include <Class_Hero.h>
 #include <Class_Block.h>
 #include <Class_Inventory.h>
@@ -35,7 +35,7 @@
 #include <Mythril_block.h>
 #include <adamantite_block.h>
 #include <night_block.h>
-#include <grass_block.h>
+//#include <grass_block.h>
 using namespace std;
 using namespace sf;
 

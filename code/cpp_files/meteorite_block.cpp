@@ -7,7 +7,7 @@ int Metiorite_Block::getType()
 }
 void Metiorite_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Metiorite_Block::deserialaze(ifstream &fin)
 {

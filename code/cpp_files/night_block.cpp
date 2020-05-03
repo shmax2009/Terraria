@@ -8,7 +8,7 @@ int Night_Block::getType()
 }
 void Night_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Night_Block::deserialaze(ifstream &fin)
 {

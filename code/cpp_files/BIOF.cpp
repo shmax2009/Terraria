@@ -4,7 +4,7 @@
 #include <random>
 #include <string>
 #include <math.h>
-
+#include <vector>
 #include <Class_Block.h>
 #include <Class_Inventory.h>
 #include <All_Function.h>
@@ -26,12 +26,12 @@ using namespace sf;
 
 void open_or_create_all(ifstream &fin, ofstream &fout, vector<vector<Block*>> arr, int col_material, Hero &h, Inventory *inventor,Biom *biom)
 {
-	// fin.open("/home/max/learn_c/Teraria/Maps/map.txt");
+	fin.open("/home/max/learn_c/Teraria/Maps/map.txt");
 
 	if (emp(fin))
 	{
 		randomxy(arr, col_material,biom);
-		cout<<"9"<<endl;
+		// cout<<"9"<<endl;
 		fout.open("/home/max/learn_c/Teraria/Maps/map.txt", ofstream::app);
 		cinmap(arr, fout);
 		fout.close();

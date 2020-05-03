@@ -7,7 +7,7 @@ int Sky_Block::getType()
 }
 void Sky_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Sky_Block::deserialaze(ifstream &fin)
 {

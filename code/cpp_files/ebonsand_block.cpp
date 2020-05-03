@@ -7,7 +7,7 @@ int Ebonsand_Block::getType()
 }
 void Ebonsand_Block::serialaze(ofstream &fout)
 {
-     fout <<type<<" ";
+     fout<<type<<" ";
 }
 void Ebonsand_Block::deserialaze(ifstream &fin)
 {
