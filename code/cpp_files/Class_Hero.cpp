@@ -4,7 +4,7 @@
 #include <random>
 #include <string>
 #include <math.h>
-#include<Animation_of_hero.h>
+#include <Animation_of_hero.h>
 #include <Class_Block.h>
 #include <Class_Inventory.h>
 #include <All_Function.h>
@@ -49,16 +49,34 @@
 using namespace std;
 using namespace sf;
 
-void Hero::fythics_position(int gravity, vector<vector<Block*>> arr)
-{ 
+void Hero::fythics_position(float &gravity, vector<vector<Block *>> arr)
+{
     int xmc;
     int ymc;
-    xmc = (int)(102-trunc(r)) / (24 / GV::size);
-    ymc = (int)(115 - trunc(t)) / (48 / GV::size);
-    
-    // cout<<xmc<<" "<<ymc<<round(r)<<round(t)<<endl;
-    to=t;
-    t -= (float)gravity;
-    if (arr[xmc][ymc]->getType() != 0)
-        t += (float)gravity;
+    xmc = (int)((xhero)) / (24 / GV::size);
+    ymc = (int)((yhero)) / (48 / GV::size) +1;
+
+    cout<<xmc<<" "<<ymc<<endl;
+
+    // cout<<xmc<<" "<<ymc<<endl;
+    if (arr[xmc][ymc]->getType() == 0)
+    {
+        yhero += (float)gravity;
+        gravity+=0.01;
+        // cout << "true" << endl;
+    }else
+    gravity=1;
+}
+void Hero::move(float x, float y)
+{
+    xhero += x;
+    yhero += y;
+}
+float Hero::getPosx()
+{
+    return xhero;
+}
+float Hero::getPosy()
+{
+    return yhero;
 }

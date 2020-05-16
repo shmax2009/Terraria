@@ -44,11 +44,14 @@ using namespace sf;
 class Hero
 {
 	public:
-		float r;
-		float t;
-		int ro=r;
-		int to=t;
-	void fythics_position(int gravity ,vector<vector<Block*>> arr);
+		float yhero;
+		float xhero;
+		int ro=yhero;
+		int to=xhero;
+	void fythics_position(float &gravity ,vector<vector<Block*>> arr);
+	void move(float x,float y);
+	float getPosx();
+	float getPosy();
 	
 };
 

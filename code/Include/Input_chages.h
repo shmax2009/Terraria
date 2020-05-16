@@ -29,6 +29,6 @@ using namespace std;
 using namespace sf;
 
 // split into smaller once
-void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &fin, vector<vector<Block*>> arr, Hero &h, Inventory *inventor, int &n, int &rotation, int &numb);
+void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &fin, vector<vector<Block*>> arr, Hero &h, Inventory *inventor, int &n, int &rotation, int &numb,View &view,Hero_anim &her);
 
 #endif

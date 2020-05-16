@@ -7,7 +7,7 @@
 #include <random>
 #include <string>
 #include <math.h>
-
+#include <Class_Biom.h>
 #include <Class_Block.h>
 #include <Class_Inventory.h>
 #include <All_Function.h>

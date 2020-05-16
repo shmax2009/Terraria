@@ -9,6 +9,7 @@
 #include <Class_Block.h>
 #include <Class_Inventory.h>
 #include <Global_Variable.h>
+#include <Animation_of_hero.h>
 
 #include <sky_block.h>
 #include <ground_block.h>
@@ -86,10 +87,10 @@ int what_nymber_of_inventor(Event *event, int on)
     return n;
 }
 
-void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb, vector<vector<Block*>> arr)
+void How_hero_change_position(RenderWindow &window,Hero &h, View &view, Event *event, int &rotation, int &numb, vector<vector<Block *>> arr)
 {
-    h.ro = h.r;
-    h.to = h.t;
+    // h.ro = h.r;
+    // h.to = h.t;
     int i1 = 0;
     int i2 = 0;
     int i3 = 0;
@@ -97,12 +98,19 @@ void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb, v
     {
         int xmc;
         int ymc;
-        xmc = (int)(105 - trunc(h.r)) / (24 / GV::size);
-        ymc = (int)(105 - trunc(h.t)) / (48 / GV::size);
-
-        if (arr[xmc][ymc]->getType() == 0)
-
-            h.r -= 2.0;
+        h.move(2, 0);
+        // view.move(2, 0);
+        // window.setView(view);
+        xmc = (int)(h.getPosx()) / (24 / GV::size);
+        ymc = (int)(h.getPosy()) / (48 / GV::size);
+        // cout<<xmc<<ymc<<endl;
+        if (arr[xmc][ymc]->getType() != 0)
+        {
+            h.move(-2, 0);
+            // view.move(-2, 0);
+            // window.setView(view);
+        }
+        
         rotation = 1;
         numb++;
         GV::vect = 1;
@@ -112,12 +120,16 @@ void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb, v
     {
         int xmc;
         int ymc;
-        xmc = (int)(100 - trunc(h.r)) / (24 / GV::size);
-        ymc = (int)(105 - trunc(h.t)) / (48 / GV::size);
+        h.move(-2, 0);
+        // view.move(-2, 0);
+        // window.setView(view);
+        xmc = (int)(h.getPosx()) / (24 / GV::size);
+        ymc = (int)(h.getPosy()) / (48 / GV::size);
 
-        if (arr[xmc][ymc]->getType() == 0)
-
-            h.r += 2.0;
+        if (arr[xmc][ymc]->getType() != 0)
+        {
+            h.move(2, 0);
+        }
         rotation = -1;
         numb++;
         GV::vect = -1;
@@ -127,8 +139,8 @@ void How_hero_change_position(Hero &h, Event *event, int &rotation, int &numb, v
     {
         int xmc;
         int ymc;
-        xmc = (int)(100 - trunc(h.r)) / (24 / GV::size);
-        ymc = (int)(95 - trunc(h.t)) / (48 / GV::size);
+        xmc = (int)(h.getPosx()) / (24 / GV::size);
+        ymc = (int)(h.getPosy()) / (48 / GV::size);
 
         if (arr[xmc][ymc]->getType() == 0)
             GV::timeforjump = true;

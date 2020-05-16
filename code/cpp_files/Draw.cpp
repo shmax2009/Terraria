@@ -12,7 +12,7 @@
 #include <create_map.h>
 #include <Cursor_doing_in_game.h>
 #include <Textur_Terrain.h>
-
+#include <Animation_of_hero.h>
 #include <Draw.h>
 
 #include <sky_block.h>
@@ -45,67 +45,60 @@
 using namespace std;
 using namespace sf;
 // Please, redo everything
-void drawWorld(RenderWindow &window, vector<vector<Block *>> arr, Texture *world_texture, float rt, float gt)
+void drawWorld(RenderWindow &window, vector<vector<Block *>> arr, Texture *world_texture, Hero h)
 {
-    int r = (round(rt));
-    int g = (round(gt));
-    for (int i = 0; i < GV::x; i++)
+    int r = round(h.getPosx());
+    int g = round(h.getPosy());
+    for (int i = 1; i < GV::x; i++)
     {
-        for (int j = 0; j < GV::y; j++)
+        for (int j = 1; j < GV::y; j++)
         {
-            // if ((arr[i][j]->getType() == 1 || arr[i][j]->getType() == 26))
-            // {
-            //     delete arr[i][j];
 
-            //     if (arr[i][j - 1]->getType() == 0)
-            //     {
-            //         // delete arr[i][j];
-            //         arr[i][j] = (fabrica::create(26));
-            //     }
-            //     else
-            //     {
-            //         // delete arr[i][j];
-            //         arr[i][j] = (fabrica::create(1));
-            //     }
-            // }
-
-            float tmpx = i * (24 / GV::size) + (r * 1);
-            float tmpy = j * (48 / GV::size) + (g * 1);
-
-            if (((tmpx > -20) && (tmpx < 220)) && ((tmpy > -20) && (tmpy < 220)))
+            float tmpx = i * (24 / GV::size);
+            float tmpy = j * (48 / GV::size);
+            int type = 0;
+            if (((tmpx > -120 + r) && (tmpx < 220 + r)) && ((tmpy > -120 + g) && (tmpy < 220 + g)) && (i > 0 && i < GV::x) && (j > 0 && j < GV::y))
             {
+
                 Sprite tmp;
-                if (arr[i][j]->getType() == 0)
+                if (arr[i][j] != NULL)
                 {
-                    if (GV::day == 0)
-                        tmp.setTexture(world_texture[arr[i][j]->getType()]);
+
+                    type = arr[i][j]->getType();
+                    if (type == 0)
+                    {
+                        if (GV::day == 0)
+                            tmp.setTexture(world_texture[type]);
+                        else
+                        {
+                            tmp.setTexture(world_texture[25]);
+                        }
+                    }
                     else
                     {
-                        tmp.setTexture(world_texture[25]);
+                        tmp.setTexture(world_texture[type]);
                     }
-                }
-                else
-                {
-                    tmp.setTexture(world_texture[arr[i][j]->getType()]);
-                }
 
-                tmp.setScale((0.5 / GV::size + 0.01), (1 / GV::size + 0.01));
-                tmp.setPosition(tmpx, tmpy);
+                    tmp.setScale((0.5 / GV::size + 0.01), (1 / GV::size + 0.01));
+                    tmp.setPosition(tmpx, tmpy);
 
-                window.draw(tmp);
+                    window.draw(tmp);
+                }
             }
         }
     }
 }
 
-void DrawInventor(RenderWindow &window, Texture *world, Inventory *inventor)
+void DrawInventor(RenderWindow &window, Texture *world, Inventory *inventor, Hero h)
 {
+    int r = round(h.getPosx());
+    int g = round(h.getPosy());
     for (int i = 0; i < 8; i++)
     {
         if (inventor[i].type != 0)
         {
-            int tmpx = i * (24 / GV::size);
-            int tmpy = 0;
+            int tmpx = i * (24 / GV::size) +r-100;
+            int tmpy = g-100;
             Sprite tmp;
 
             tmp.setTexture(world[inventor[i].type]);

@@ -15,7 +15,7 @@
 #include <create_map.h>
 #include <Cursor_doing_in_game.h>
 #include <Textur_Terrain.h>
-
+#include <Animation_of_hero.h>
 #include <sky_block.h>
 #include <ground_block.h>
 #include <stone_block.h>
@@ -46,8 +46,8 @@
 using namespace std;
 using namespace sf;
 
-void drawWorld(RenderWindow &window, vector<vector<Block*>> arr, Texture *world_texture, float rt, float gt);
+void drawWorld(RenderWindow &window, vector<vector<Block *>> arr, Texture *world_texture, Hero h);
 
-void DrawInventor(RenderWindow &window, Texture *world, Inventory *inventor);
+void DrawInventor(RenderWindow &window, Texture *world, Inventory *inventor , Hero h);
 
 #endif

@@ -47,14 +47,28 @@
 #include <Mythril_block.h>
 #include <adamantite_block.h>
 #include <night_block.h>
-//#include <grass_block.h>
+
 #include <fabrica.h>
-// #include <cstdlib>
+void create_pole(vector<vector<Block*>> &arr)
+{
+	for (int i = 0; i < GV::x; i++)
+	{
+		vector<Block *> b;
+		for (int j = 0; j < GV::y; j++)
+		{
+			Block *g = fabrica::create(1);
+			b.push_back(g);
+			// if(j==) cout<<"hi"<<endl;
+		}
+		arr.push_back(b);
+		// if(i == 7000) cout<<"dgf"<<endl;
+	}
+}
 void Game::play()
 {
 	Music_of_game music;
 	music.conect();
-
+	GV::s = "/home/max/learn_c/Teraria/";
 	float gravity = 1.0;
 	sizeh siz;
 	siz.h = 0.3;
@@ -71,6 +85,7 @@ void Game::play()
 
 	window.setFramerateLimit(FPS);
 	Biom biom[3];
+	GV::col_biom=3;
 	biom[0].generate(0, 0, GV::x / 2 - 4000, GV::y, Desert);
 	biom[1].generate(GV::x / 2 + 1 - 4000, 0, GV::x / 2 - 3900, GV::y, Jungle);
 	biom[2].generate(GV::x / 2 + 1 - 3900, 0, GV::x, GV::y, Hell);
@@ -81,23 +96,9 @@ void Game::play()
 
 	Hero h;
 	Inventory inventor[8];
-	vector<vector<Block *>>arr;
-
-	for (int i = 0; i < GV::x; i++)
-	{
-		vector<Block *> b;
-		for (int j = 0; j < GV::y; j++)
-		{
-			Block *g = fabrica::create(1);
-			b.push_back(g);
-			// if(j==) cout<<"hi"<<endl;
-		}
-		arr.push_back(b);
-		// if(i == 7000) cout<<"dgf"<<endl;
-
-	}
-
-	cout << "1" << endl;
+	vector<vector<Block *>> arr;
+	create_pole(arr);
+	// cout << "1" << endl;
 	Texture Cursor_texture;
 	Texture Frame_texture;
 
@@ -112,8 +113,8 @@ void Game::play()
 
 	open_or_create_all(fin, fout, arr, col_material, h, inventor, biom);
 	// cout<<"8"<<endl;
-	Cursor_texture.loadFromFile("/home/max/learn_c/Teraria/Resurce/Cursor.png");
-	Frame_texture.loadFromFile("/home/max/learn_c/Teraria/Resurce/Frame.png");
+	Cursor_texture.loadFromFile(GV::s + "Resurce/Cursor.png");
+	Frame_texture.loadFromFile(GV::s + "Resurce/Frame.png");
 
 	Cursor.setTexture(Cursor_texture);
 	Frame.setTexture(Frame_texture);
@@ -129,6 +130,8 @@ void Game::play()
 	int iterator = 40;
 	int it = 0;
 	// cout << "2" << endl;
+	view.reset(sf::FloatRect(h.getPosx() - 100, h.getPosy() - 100, 200, 200));
+	window.setView(view);
 	while (window.isOpen())
 	{
 		Event event[1];
@@ -150,28 +153,32 @@ void Game::play()
 			GV::isitendofjump = true;
 			procent = 0;
 		}
-
-		anim_her.setRot(rotation, numb, siz);
-		input_bounds(window, event, fout, fin, arr, h, inventor, n, rotation, numb);
+		anim_her.setPosition(h.xhero, h.yhero);
+		view.reset(sf::FloatRect(h.getPosx() - 100, h.getPosy() - 100, 200, 200));
+		window.setView(view);
+		anim_her.setRot(rotation, numb, siz, h);
+		input_bounds(window, event, fout, fin, arr, h, inventor, n, rotation, numb, view, anim_her);
 		window.clear();
-
-		drawWorld(window, arr, wt.world_texture, h.r, h.t);
+		
+		drawWorld(window, arr, wt.world_texture, h);
 
 		all_thing_thats_happend_with_cursor(window, event, inventor, arr, Frame, Cursor, n, h);
-		DrawInventor(window, wt.world_texture, inventor);
+		DrawInventor(window, wt.world_texture, inventor, h);
 		anim_her.drawhero(window);
+
 		window.display();
 		if (!GV::timeforjump)
 			h.fythics_position(gravity, arr);
 		else
 		{
-			h.t += 1;
+
+			h.move(0, -1);
 		}
 
 		iterator++;
 		it++;
-		music.Music_play(it, h, biom);
+		music.Music_play(it, anim_her, biom);
 	}
-	cout << "3" << endl;
+
 	arr.clear();
 }

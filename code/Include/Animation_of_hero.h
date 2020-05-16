@@ -25,6 +25,8 @@ struct sizeh
 };
 class Hero_anim
 {
+
+
 public:
 	Texture hairtextureanim[16];
 	Texture headtextureanim[20];
@@ -35,9 +37,13 @@ public:
 	Sprite boudy;
 	Sprite legs;
 	void takeit(sizeh,Color);
-
-	void setRot(int, int,sizeh);
+	int oldrot=0;
+	void setRot(int, int,sizeh,Hero&);
 
 	void drawhero(RenderWindow &);
+	void move(float x,float y);
+	float getPosx();
+	float getPosy();
+	void setPosition(float x,float y);
 };
 #endif

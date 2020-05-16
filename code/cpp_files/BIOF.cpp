@@ -26,13 +26,13 @@ using namespace sf;
 
 void open_or_create_all(ifstream &fin, ofstream &fout, vector<vector<Block*>> arr, int col_material, Hero &h, Inventory *inventor,Biom *biom)
 {
-	fin.open("/home/max/learn_c/Teraria/Maps/map.txt");
+	fin.open(GV::s+ "Maps/map.txt");
 
 	if (emp(fin))
 	{
 		randomxy(arr, col_material,biom);
 		// cout<<"9"<<endl;
-		fout.open("/home/max/learn_c/Teraria/Maps/map.txt", ofstream::app);
+		fout.open(GV::s+ "Maps/map.txt", ofstream::app);
 		cinmap(arr, fout);
 		fout.close();
 	}
@@ -43,12 +43,12 @@ void open_or_create_all(ifstream &fin, ofstream &fout, vector<vector<Block*>> ar
 
 	fin.close();
 
-	fin.open("/home/max/learn_c/Teraria/Maps/position.bin");
+	fin.open(GV::s+ "Maps/position.bin");
 
 	if(emp(fin))
 	{
-		h.r = -4000;
-		h.t = -1500;
+		h.yhero = 199* (24 / GV::size);
+		h.xhero = 100* (48 / GV::size);
 	}
 	else
 	{
@@ -57,13 +57,13 @@ void open_or_create_all(ifstream &fin, ofstream &fout, vector<vector<Block*>> ar
 	
 	fin.close();
 
-	fin.open("/home/max/learn_c/Teraria/Maps/inventor.bin");
+	fin.open(GV::s+ "Maps/inventor.bin");
 
 	if(emp(fin))
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			fout.open("/home/max/learn_c/Teraria/Maps/inventor.bin");
+			fout.open(GV::s+ "Maps/inventor.bin");
 			inventor[i].type = 0;
 			saveInventory(inventor,fout);
 			

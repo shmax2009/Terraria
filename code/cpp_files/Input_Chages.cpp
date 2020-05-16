@@ -24,7 +24,7 @@
 using namespace std;
 using namespace sf;
 
-void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &fin,vector<vector<Block*>> arr, Hero &h, Inventory *inventor, int &n, int &rotation, int &numb)
+void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &fin,vector<vector<Block*>> arr, Hero &h, Inventory *inventor, int &n, int &rotation, int &numb,View &view,Hero_anim &her)
 {
     // FIXME: Comment
 
@@ -32,15 +32,15 @@ void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &
     {
         if (event[0].type == Event::Closed)
         {
-            fout.open("/home/max/learn_c/Teraria/Maps/map.txt", ofstream::out);
+            fout.open(GV::s+ "Maps/map.txt", ofstream::out);
             cinmap(arr, fout);
             fout.close();
 
-            fout.open("/home/max/learn_c/Teraria/Maps/inventor.bin", ofstream::out);
+            fout.open(GV::s+ "Maps/inventor.bin", ofstream::out);
             saveInventory(inventor, fout);
             fout.close();
 
-            fout.open("/home/max/learn_c/Teraria/Maps/position.bin", ofstream::out);
+            fout.open(GV::s+ "Maps/position.bin", ofstream::out);
             fout.write((char *)&h, sizeof(Hero));
             window.close();
         }
@@ -52,7 +52,7 @@ void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &
                 inventor[n].col = 0;
             }
 
-            How_hero_change_position(h, event,rotation,numb,arr);
+            How_hero_change_position(window,h,view,event,rotation,numb,arr);
             n = what_nymber_of_inventor(event, n);
         }
     }

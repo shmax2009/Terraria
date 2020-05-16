@@ -52,14 +52,15 @@ void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inv
 
     Cursor.setPosition(pos.x, pos.y);
 
-    xmc = (int)(pos.x - trunc(h.r)) / (24 / GV::size);
-    ymc = (int)(pos.y - trunc(h.t)) / (48 / GV::size);
+    xmc = (int)(pos.x)  / (24 / GV::size);
+    ymc = (int)(pos.y) / (48 / GV::size);
 
-    if (true)
-    {
-
+    if ((xmc<GV::x) && (xmc>=0) && (ymc<GV::y) && (ymc>=0))
+    {   
+        
         if (Mouse::isButtonPressed(Mouse::Left))
-        {
+        {   
+            // cout<<xmc<<" "<<ymc<<endl;
             if ((arr[xmc][ymc]->getType() != 0) && (freeInventor(inventor, arr[xmc][ymc]->getType()) < 8))
             {
          
@@ -68,6 +69,7 @@ void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inv
                 inventor[freeInventor(inventor, arr[xmc][ymc]->getType())].col++;
                 delete arr[xmc][ymc];
                 arr[xmc][ymc] = (fabrica::create(0));
+                // cout<<xmc<<"m"<<ymc<<endl;
             }
         }
 
@@ -92,7 +94,7 @@ void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inv
         inventor[n].type = 0;
     }
 
-    Frame.setPosition(n * (24 / GV::size), 0);
+    Frame.setPosition(n * (24 / GV::size)+h.getPosx() -100, h.getPosy() -100);
 
     window.draw(Frame);
     window.draw(Cursor);
