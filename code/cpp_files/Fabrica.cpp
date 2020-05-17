@@ -26,7 +26,7 @@
 #include <cobalt_block.h>
 #include <Mythril_block.h>
 #include <adamantite_block.h>
-#include <night_block.h>
+// #include <night_block.h>
 //#include <grass_block.h>
 Block* fabrica::create(int i)
 {
@@ -109,9 +109,9 @@ Block* fabrica::create(int i)
     case 24:
         p = new Adamantite_Block;
         break;
-    case 25:
-        p = new Night_Block;
-        break;
+    // case 25:
+    //     p = new Night_Block;
+    //     break;
     case 26:
         // p = new Grass_Block;
         // break;

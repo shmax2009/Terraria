@@ -35,7 +35,7 @@
 #include <cobalt_block.h>
 #include <Mythril_block.h>
 #include <adamantite_block.h>
-#include <night_block.h>
+// #include <night_block.h>
 //#include <grass_block.h>
 #include <fabrica.h>
 
@@ -60,7 +60,7 @@ int whatsthetype(int x, int y, Biom *biom, int size)
 	}
 	return biom[h].Bioms_block;
 }
-void randomxy(vector<vector<Block*>> arr, int max, Biom *biom)
+void randomxy(vector<vector<Block *>> arr, int max, Biom *biom)
 {
 	for (int o = 0; o < 100; o++)
 	{
@@ -77,8 +77,9 @@ void randomxy(vector<vector<Block*>> arr, int max, Biom *biom)
 	{
 		for (int k = 0; k < GV::x; k++)
 		{
-			delete arr[k][l];
+			
 			int tmptyp = whatsthetype(k, l, biom, GV::col_biom);
+			delete arr[k][l];
 			arr[k][l] = (fabrica::create(tmptyp));
 			// cout<<tmptyp;
 		}
@@ -87,7 +88,8 @@ void randomxy(vector<vector<Block*>> arr, int max, Biom *biom)
 
 	for (int o = 110; o < 140; o++)
 	{
-		for (int g = 0; g < GV::x; g++ arr[g][o];
+		for (int g = 0; g < GV::x; g++)
+		{
 			if (rand() % 10 == 0)
 				arr[g][o] = (fabrica::create(0));
 			else
@@ -108,7 +110,7 @@ void randomxy(vector<vector<Block*>> arr, int max, Biom *biom)
 			}
 			else
 			{
-				arr[j][i] = (fabrica::create((rand() % (int)n0(abs(trunc(2 + i / 10.0 - 2))))% 26));
+				arr[j][i] = (fabrica::create((rand() % (int)n0(abs(trunc(2 + i / 10.0 - 2)))) % 26));
 			}
 		}
 

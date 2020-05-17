@@ -36,7 +36,7 @@
 #include <cobalt_block.h>
 #include <Mythril_block.h>
 #include <adamantite_block.h>
-#include <night_block.h>
+// #include <night_block.h>
 //#include <grass_block.h>
 
 using namespace std;
@@ -67,8 +67,11 @@ void all_thing_thats_happend_with_cursor(RenderWindow &window, Event *event, Inv
 
                 inventor[freeInventor(inventor, arr[xmc][ymc]->getType())].type = arr[xmc][ymc]->getType();
                 inventor[freeInventor(inventor, arr[xmc][ymc]->getType())].col++;
+                // cout<<0<<endl;
                 delete arr[xmc][ymc];
+                // cout<<1<<endl;
                 arr[xmc][ymc] = (fabrica::create(0));
+                // cout<<2<<endl;
                 // cout<<xmc<<"m"<<ymc<<endl;
             }
         }

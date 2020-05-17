@@ -63,7 +63,7 @@ void coutmap(vector<vector<Block *>> arr, ifstream &fin)
 			// fin.read((char*)&arr[i][j], sizeof(Block));
 			int t;
 			fin >> t;
-			// delete arr[i][j];
+			delete arr[i][j];
 			arr[i][j] = (fabrica::create(t));
 			arr[i][j]->deserialaze(fin);
 		}

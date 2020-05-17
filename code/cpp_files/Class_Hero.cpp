@@ -39,7 +39,7 @@
 #include <cobalt_block.h>
 #include <Mythril_block.h>
 #include <adamantite_block.h>
-#include <night_block.h>
+// #include <night_block.h>
 //#include <grass_block.h>
 #include <Class_Hero.h>
 // 0.5 1
@@ -56,9 +56,10 @@ void Hero::fythics_position(float &gravity, vector<vector<Block *>> arr)
     xmc = (int)((xhero)) / (24 / GV::size);
     ymc = (int)((yhero)) / (48 / GV::size) +1;
 
-    cout<<xmc<<" "<<ymc<<endl;
-
     // cout<<xmc<<" "<<ymc<<endl;
+
+    cout<<xmc<<" "<<ymc<<endl;
+    
     if (arr[xmc][ymc]->getType() == 0)
     {
         yhero += (float)gravity;

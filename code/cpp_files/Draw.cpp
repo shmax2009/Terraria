@@ -39,7 +39,7 @@
 #include <cobalt_block.h>
 #include <Mythril_block.h>
 #include <adamantite_block.h>
-#include <night_block.h>
+// #include <night_block.h>
 //#include <grass_block.h>
 #include <fabrica.h>
 using namespace std;
@@ -65,19 +65,18 @@ void drawWorld(RenderWindow &window, vector<vector<Block *>> arr, Texture *world
                 {
 
                     type = arr[i][j]->getType();
-                    if (type == 0)
-                    {
-                        if (GV::day == 0)
-                            tmp.setTexture(world_texture[type]);
-                        else
-                        {
-                            tmp.setTexture(world_texture[25]);
-                        }
-                    }
-                    else
-                    {
-                        tmp.setTexture(world_texture[type]);
-                    }
+                    // if (type == 0)
+                    // {
+                    //     if (GV::day == 0)
+                    //         tmp.setTexture(world_texture[type]);
+                    //     else
+                    //     {
+                    //         tmp.setTexture(world_texture[25]);
+                    //     }
+                    // }
+                    // else
+                    // {
+                    tmp.setTexture(world_texture[type]);
 
                     tmp.setScale((0.5 / GV::size + 0.01), (1 / GV::size + 0.01));
                     tmp.setPosition(tmpx, tmpy);
@@ -97,8 +96,8 @@ void DrawInventor(RenderWindow &window, Texture *world, Inventory *inventor, Her
     {
         if (inventor[i].type != 0)
         {
-            int tmpx = i * (24 / GV::size) +r-100;
-            int tmpy = g-100;
+            int tmpx = i * (24 / GV::size) + r - 100;
+            int tmpy = g - 100;
             Sprite tmp;
 
             tmp.setTexture(world[inventor[i].type]);

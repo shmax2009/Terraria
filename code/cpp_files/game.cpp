@@ -46,7 +46,7 @@
 #include <cobalt_block.h>
 #include <Mythril_block.h>
 #include <adamantite_block.h>
-#include <night_block.h>
+// #include <night_block.h>
 
 #include <fabrica.h>
 void create_pole(vector<vector<Block*>> &arr)
@@ -181,4 +181,5 @@ void Game::play()
 	}
 
 	arr.clear();
+	
 }
