@@ -177,7 +177,7 @@ void Game::play()
 
 		iterator++;
 		it++;
-		music.Music_play(it, anim_her, biom);
+		// music.Music_play(it, anim_her, biom);
 	}
 
 	arr.clear();
