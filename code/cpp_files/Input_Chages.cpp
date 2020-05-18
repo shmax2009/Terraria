@@ -24,7 +24,7 @@
 using namespace std;
 using namespace sf;
 
-void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &fin,vector<vector<Block*>> arr, Hero &h, Inventory *inventor, int &n, int &rotation, int &numb,View &view,Hero_anim &her)
+void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &fin,vector<vector<Block*>> &arr, Hero &h, Inventory *inventor, int &n, int &rotation, int &numb,View &view,Hero_anim &her)
 {
     // FIXME: Comment
 
@@ -42,6 +42,7 @@ void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &
 
             fout.open(GV::s+ "Maps/position.bin", ofstream::out);
             fout.write((char *)&h, sizeof(Hero));
+            fout.close();
             window.close();
         }
 

@@ -28,10 +28,11 @@
 #include <adamantite_block.h>
 // #include <night_block.h>
 //#include <grass_block.h>
+#include <assert.h>
 Block* fabrica::create(int i)
 {
     
-    Block *p;
+    Block *p=NULL;
     switch (i)
     {
     case 0:
@@ -109,13 +110,8 @@ Block* fabrica::create(int i)
     case 24:
         p = new Adamantite_Block;
         break;
-    // case 25:
-    //     p = new Night_Block;
-    //     break;
-    case 26:
-        // p = new Grass_Block;
-        // break;
     default:
+     
         break;
     }
     return p;

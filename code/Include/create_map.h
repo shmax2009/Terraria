@@ -45,6 +45,6 @@ using namespace sf;
 
 int n0(int x);
 int whatsthetype(int x, int y, Biom *biom, int size);
-void randomxy(vector<vector<Block*>> arr, int max,Biom* Biom);
+void randomxy(vector<vector<Block*>> &arr, int max,Biom* Biom);
 
 #endif

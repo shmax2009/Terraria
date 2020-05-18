@@ -48,7 +48,7 @@ class Hero
 		float xhero;
 		int ro=yhero;
 		int to=xhero;
-	void fythics_position(float &gravity ,vector<vector<Block*>> arr);
+	void fythics_position(float &gravity ,vector<vector<Block*>> &arr);
 	void move(float x,float y);
 	float getPosx();
 	float getPosy();

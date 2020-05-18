@@ -24,8 +24,8 @@ using namespace sf;
 
 bool emp(std::ifstream &pFile);
 
-void cinmap(vector<vector<Block*> > arr, ofstream &fout);
-void coutmap(vector<vector<Block*> > arr, ifstream &fin);
+void cinmap(vector<vector<Block*> > &arr, ofstream &fout);
+void coutmap(vector<vector<Block*> > &arr, ifstream &fin);
 
 void saveInventory(Inventory *Inventor, ofstream &fout);
 void openInventory(Inventory *Inventor, ifstream &fin);

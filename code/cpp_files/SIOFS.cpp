@@ -11,8 +11,6 @@
 #include <Global_Variable.h>
 #include <create_map.h>
 #include <Draw.h>
-// #include <Cursor_doing_in_game.h>
-// #include <Textur_Terrain.h>
 #include <SIOFS.h>
 #include <fabrica.h>
 
@@ -25,7 +23,7 @@ bool emp(ifstream &pFile)
 	// return pFile.peek() == EOF; ?
 }
 
-void cinmap(vector<vector<Block *>> arr, ofstream &fout)
+void cinmap(vector<vector<Block *>> &arr, ofstream &fout)
 {
 	for (int i = 0; i < GV::x; i++)
 	{
@@ -33,7 +31,8 @@ void cinmap(vector<vector<Block *>> arr, ofstream &fout)
 		{
 
 			// cout << i << " " << j << " " << arr[i][j]->getType() << endl;
-			// arr[i][j]->serialaze(fout);
+			if (arr[i][j] != NULL)
+				arr[i][j]->serialaze(fout);
 		}
 	}
 }
@@ -54,7 +53,7 @@ void openInventory(Inventory *Inventor, ifstream &fin)
 	}
 }
 
-void coutmap(vector<vector<Block *>> arr, ifstream &fin)
+void coutmap(vector<vector<Block *>> &arr, ifstream &fin)
 {
 	for (int i = 0; i < GV::x; i++)
 	{

@@ -47,6 +47,6 @@ int freeInventor(Inventory *inventor, int f);
 
 int what_nymber_of_inventor(Event *event, int on);
 
-void How_hero_change_position(RenderWindow &window,Hero &h, View &view, Event *event, int &rotation, int &numb, vector<vector<Block *>> arr);
+void How_hero_change_position(RenderWindow &window,Hero &h, View &view, Event *event, int &rotation, int &numb, vector<vector<Block *>> &arr);
 
 #endif

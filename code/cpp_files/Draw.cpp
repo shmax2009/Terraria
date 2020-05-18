@@ -45,7 +45,7 @@
 using namespace std;
 using namespace sf;
 // Please, redo everything
-void drawWorld(RenderWindow &window, vector<vector<Block *>> arr, Texture *world_texture, Hero h)
+void drawWorld(RenderWindow &window, vector<vector<Block *>> &arr, Texture *world_texture, Hero h)
 {
     int r = round(h.getPosx());
     int g = round(h.getPosy());

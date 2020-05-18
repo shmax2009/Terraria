@@ -87,13 +87,14 @@ int what_nymber_of_inventor(Event *event, int on)
     return n;
 }
 
-void How_hero_change_position(RenderWindow &window,Hero &h, View &view, Event *event, int &rotation, int &numb, vector<vector<Block *>> arr)
+void How_hero_change_position(RenderWindow &window,Hero &h, View &view, Event *event, int &rotation, int &numb, vector<vector<Block *>> &arr)
 {
     // h.ro = h.r;
     // h.to = h.t;
     int i1 = 0;
     int i2 = 0;
     int i3 = 0;
+    
     if ((event[i1].key.code == Keyboard::Right) || (event[i1].key.code == Keyboard::D))
     {
         int xmc;

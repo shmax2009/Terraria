@@ -24,11 +24,11 @@ public:
     }
     void serialaze(ofstream &fout)
     {
-        fout << type << " " << s << " " << arr << " " << c << " ";
+        fout << type << " ";
     }
     void deserialaze(ifstream &fin)
     {
-        fin >> s >> arr >> c;
+   
     }
 };
 
@@ -36,18 +36,18 @@ class N2 : public Numbers
 {
 public:
     int type = 2;
-    int y = 90;
+    // int y = 90;
     void getType()
     {
         cout << type << endl;
     }
     void serialaze(ofstream &fout)
     {
-        fout << type << " " << y << " ";
+        fout << type<< " ";
     }
     void deserialaze(ifstream &fin)
     {
-        fin >> y;
+        // fin >> y;
     }
 };
 

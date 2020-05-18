@@ -24,7 +24,7 @@
 using namespace std;
 using namespace sf;
 
-void open_or_create_all(ifstream &fin, ofstream &fout, vector<vector<Block*>> arr, int col_material, Hero &h, Inventory *inventor,Biom *biom)
+void open_or_create_all(ifstream &fin, ofstream &fout, vector<vector<Block*>> &arr, int col_material, Hero &h, Inventory *inventor,Biom *biom)
 {
 	fin.open(GV::s+ "Maps/map.txt");
 

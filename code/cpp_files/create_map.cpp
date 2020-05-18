@@ -60,40 +60,42 @@ int whatsthetype(int x, int y, Biom *biom, int size)
 	}
 	return biom[h].Bioms_block;
 }
-void randomxy(vector<vector<Block *>> arr, int max, Biom *biom)
+void randomxy(vector<vector<Block *>> &arr, int max, Biom *biom)
 {
-	for (int o = 0; o < 100; o++)
+	for (int o = 0; o < GV::x; o++)
 	{
-		for (int g = 0; g < GV::x; g++)
+		for (int g = 0; g < 100; g++)
 		{
-			delete arr[g][o];
-			arr[g][o] = (fabrica::create(0));
+			delete arr[o][g];
+
+			arr[o][g] = (fabrica::create(0));
 			// cout<<0;
 		}
 		// cout<<endl;
 	}
 
-	for (int l = 100; l < 110; l++)
+	for (int l = 0; l < GV::x; l++)
 	{
-		for (int k = 0; k < GV::x; k++)
+		for (int k = 100; k < 110; k++)
 		{
 			
-			int tmptyp = whatsthetype(k, l, biom, GV::col_biom);
-			delete arr[k][l];
-			arr[k][l] = (fabrica::create(tmptyp));
+			int tmptyp = whatsthetype(l, k, biom, GV::col_biom);
+			delete arr[l][k];
+			arr[l][k] = (fabrica::create(tmptyp));
 			// cout<<tmptyp;
 		}
 		// cout<<endl;
 	}
 
-	for (int o = 110; o < 140; o++)
+	for (int o = 0; o < GV::x; o++)
 	{
-		for (int g = 0; g < GV::x; g++)
+		for (int g = 110; g < 140; g++)
 		{
+			delete arr[o][g];
 			if (rand() % 10 == 0)
-				arr[g][o] = (fabrica::create(0));
+				arr[o][g] = (fabrica::create(0));
 			else
-				arr[g][o] = (fabrica::create(random() % 4 + 1));
+				arr[o][g] = (fabrica::create(random() % 4 + 1));
 		}
 	}
 	// cout<<"1"<<endl;
@@ -103,7 +105,7 @@ void randomxy(vector<vector<Block *>> arr, int max, Biom *biom)
 		for (int j = 0; j < GV::x; j++)
 		{
 			delete arr[j][i];
-			int tmptyp = whatsthetype(j, i, biom, GV::col_biom);
+			int tmptyp = whatsthetype(i, j, biom, GV::col_biom);
 			if (rand() % 10 != 0)
 			{
 				arr[j][i] = (fabrica::create(tmptyp));

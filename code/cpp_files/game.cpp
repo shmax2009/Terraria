@@ -49,14 +49,14 @@
 // #include <night_block.h>
 
 #include <fabrica.h>
-void create_pole(vector<vector<Block*>> &arr)
+void create_pole(vector<vector<Block *>> &arr)
 {
 	for (int i = 0; i < GV::x; i++)
 	{
 		vector<Block *> b;
 		for (int j = 0; j < GV::y; j++)
 		{
-			Block *g = fabrica::create(1);
+			Block *g = fabrica::create(0);
 			b.push_back(g);
 			// if(j==) cout<<"hi"<<endl;
 		}
@@ -66,8 +66,8 @@ void create_pole(vector<vector<Block*>> &arr)
 }
 void Game::play()
 {
-	Music_of_game music;
-	music.conect();
+	// Music_of_game music;
+	// music.conect();
 	GV::s = "/home/max/learn_c/Teraria/";
 	float gravity = 1.0;
 	sizeh siz;
@@ -85,7 +85,7 @@ void Game::play()
 
 	window.setFramerateLimit(FPS);
 	Biom biom[3];
-	GV::col_biom=3;
+	GV::col_biom = 3;
 	biom[0].generate(0, 0, GV::x / 2 - 4000, GV::y, Desert);
 	biom[1].generate(GV::x / 2 + 1 - 4000, 0, GV::x / 2 - 3900, GV::y, Jungle);
 	biom[2].generate(GV::x / 2 + 1 - 3900, 0, GV::x, GV::y, Hell);
@@ -132,6 +132,8 @@ void Game::play()
 	// cout << "2" << endl;
 	view.reset(sf::FloatRect(h.getPosx() - 100, h.getPosy() - 100, 200, 200));
 	window.setView(view);
+	//----------------------------------------------------------------------------------------------
+
 	while (window.isOpen())
 	{
 		Event event[1];
@@ -159,7 +161,7 @@ void Game::play()
 		anim_her.setRot(rotation, numb, siz, h);
 		input_bounds(window, event, fout, fin, arr, h, inventor, n, rotation, numb, view, anim_her);
 		window.clear();
-		
+
 		drawWorld(window, arr, wt.world_texture, h);
 
 		all_thing_thats_happend_with_cursor(window, event, inventor, arr, Frame, Cursor, n, h);
@@ -180,6 +182,14 @@ void Game::play()
 		// music.Music_play(it, anim_her, biom);
 	}
 
-	arr.clear();
-	
+	for (int i = 0; i < arr.size(); i++)
+	{
+		for (int j = 0; j < arr[i].size(); j++)
+		{
+			delete arr[i][j];
+			// cout<<i<<" "<<j<<endl;
+		}
+	}
+	// delete window;
+	// arr.clear();
 }
