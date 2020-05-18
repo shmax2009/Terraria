@@ -68,7 +68,7 @@ void Game::play()
 {
 	// Music_of_game music;
 	// music.conect();
-	GV::s = "/home/max/learn_c/Teraria/";
+	GV::s = "/home/max/learn_c/Terraria/";
 	float gravity = 1.0;
 	sizeh siz;
 	siz.h = 0.3;

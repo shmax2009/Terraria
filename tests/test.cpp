@@ -92,11 +92,11 @@ int main()
     ofstream fout;
     ifstream fin;
 
-    //    fin.open("./test.txt");
+    //    fin.open("./test.bin");
     //     if (emp(fin))
     //     {
 
-    // fout.open("./test.txt");
+    // fout.open("./test.bin");
 
     for (int i = 0; i < 5; i++)
     {

@@ -26,13 +26,13 @@ using namespace sf;
 
 void open_or_create_all(ifstream &fin, ofstream &fout, vector<vector<Block*>> &arr, int col_material, Hero &h, Inventory *inventor,Biom *biom)
 {
-	fin.open(GV::s+ "Maps/map.txt");
+	fin.open(GV::s+ "Maps/map.bin");
 
 	if (emp(fin))
 	{
 		randomxy(arr, col_material,biom);
 		// cout<<"9"<<endl;
-		fout.open(GV::s+ "Maps/map.txt", ofstream::app);
+		fout.open(GV::s+ "Maps/map.bin", ofstream::app);
 		cinmap(arr, fout);
 		fout.close();
 	}

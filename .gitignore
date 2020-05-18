@@ -1,4 +1,7 @@
 /home/max/learn_c/Teraria/Maps/*
-Maps/*
+Maps/
 build/*.o
-
+lib/
+tests/a.out
+tests/main
+Terraria

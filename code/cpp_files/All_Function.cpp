@@ -61,10 +61,21 @@ int freeInventor(Inventory *inventor, int f)
 
     for (int n = 0; n < 8; n++)
     {
-        if ((inventor[n].type == 0) || (inventor[n].type == f))
+        if ((inventor[n].type == f))
         {
             h = n;
             break;
+        }
+    }
+    if (h = 99)
+    {
+        for (int n = 0; n < 8; n++)
+        {
+            if ((inventor[n].type == 0))
+            {
+                h = n;
+                break;
+            }
         }
     }
 
@@ -87,14 +98,14 @@ int what_nymber_of_inventor(Event *event, int on)
     return n;
 }
 
-void How_hero_change_position(RenderWindow &window,Hero &h, View &view, Event *event, int &rotation, int &numb, vector<vector<Block *>> &arr)
+void How_hero_change_position(RenderWindow &window, Hero &h, View &view, Event *event, int &rotation, int &numb, vector<vector<Block *>> &arr)
 {
     // h.ro = h.r;
     // h.to = h.t;
     int i1 = 0;
     int i2 = 0;
     int i3 = 0;
-    
+
     if ((event[i1].key.code == Keyboard::Right) || (event[i1].key.code == Keyboard::D))
     {
         int xmc;
@@ -111,7 +122,7 @@ void How_hero_change_position(RenderWindow &window,Hero &h, View &view, Event *e
             // view.move(-2, 0);
             // window.setView(view);
         }
-        
+
         rotation = 1;
         numb++;
         GV::vect = 1;

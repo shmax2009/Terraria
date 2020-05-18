@@ -32,7 +32,7 @@ void input_bounds(RenderWindow &window, Event *event, ofstream &fout, ifstream &
     {
         if (event[0].type == Event::Closed)
         {
-            fout.open(GV::s+ "Maps/map.txt", ofstream::out);
+            fout.open(GV::s+ "Maps/map.bin", ofstream::out);
             cinmap(arr, fout);
             fout.close();
 
