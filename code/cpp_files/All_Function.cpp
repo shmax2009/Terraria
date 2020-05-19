@@ -61,21 +61,10 @@ int freeInventor(Inventory *inventor, int f)
 
     for (int n = 0; n < 8; n++)
     {
-        if ((inventor[n].type == f))
+        if ((inventor[n].type == f) || (inventor[n].type == 0))
         {
             h = n;
             break;
-        }
-    }
-    if (h = 99)
-    {
-        for (int n = 0; n < 8; n++)
-        {
-            if ((inventor[n].type == 0))
-            {
-                h = n;
-                break;
-            }
         }
     }
 

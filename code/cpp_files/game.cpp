@@ -66,8 +66,8 @@ void create_pole(vector<vector<Block *>> &arr)
 }
 void Game::play()
 {
-	// Music_of_game music;
-	// music.conect();
+	Music_of_game music;
+	music.conect();
 	GV::s = "/home/max/learn_c/Terraria/";
 	float gravity = 1.0;
 	sizeh siz;
@@ -84,11 +84,11 @@ void Game::play()
 	View view;
 
 	window.setFramerateLimit(FPS);
-	Biom biom[3];
-	GV::col_biom = 3;
-	biom[0].generate(0, 0, GV::x / 2 - 4000, GV::y, Desert);
-	biom[1].generate(GV::x / 2 + 1 - 4000, 0, GV::x / 2 - 3900, GV::y, Jungle);
-	biom[2].generate(GV::x / 2 + 1 - 3900, 0, GV::x, GV::y, Hell);
+	Biom biom[2];
+	GV::col_biom = 2;
+	biom[0].generate(0, 0, 200, GV::y, Desert);
+	biom[1].generate(201, 0, GV::x, GV::y, Jungle);
+	// biom[2].generate(GV::x / 2 + 1 - 3900, 0, GV::x, GV::y, Hell);
 	wt.connect();
 
 	ofstream fout;
@@ -179,7 +179,8 @@ void Game::play()
 
 		iterator++;
 		it++;
-		// music.Music_play(it, anim_her, biom);
+		music.Music_play(it,h, biom);
+		// cout<<anim_her.getPosx()<<" "<<an.getPosy()<<endl;
 	}
 
 	for (int i = 0; i < arr.size(); i++)

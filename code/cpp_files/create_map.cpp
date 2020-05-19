@@ -48,7 +48,7 @@ int n0(int x)
 }
 int whatsthetype(int x, int y, Biom *biom, int size)
 {
-	int h;
+	int h=-1;
 
 	for (int i = 0; i < size; i++)
 	{
@@ -58,7 +58,13 @@ int whatsthetype(int x, int y, Biom *biom, int size)
 			break;
 		}
 	}
+	if(h!=-1)
 	return biom[h].Bioms_block;
+	else
+	{
+		return 1;
+	}
+	
 }
 void randomxy(vector<vector<Block *>> &arr, int max, Biom *biom)
 {

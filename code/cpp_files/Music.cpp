@@ -6,6 +6,7 @@
 #include <Class_Biom.h>
 #include <create_map.h>
 #include <Animation_of_hero.h>
+#include <Class_Hero.h>
 
 void Music_of_game::conect()
 {
@@ -20,7 +21,7 @@ void Music_of_game::conect()
     music[3].setLoop(true);
 }
 
-void Music_of_game::Music_play(int it, Hero_anim h, Biom *biom)
+void Music_of_game::Music_play(int it, Hero h, Biom *biom)
 {
     if (it % 1000 == 999)
     {
@@ -30,8 +31,8 @@ void Music_of_game::Music_play(int it, Hero_anim h, Biom *biom)
     }
     int xmc;
     int ymc;
-    xmc = (int)(102 +h.getPosx()) / (24 / GV::size);
-    ymc = (int)(115 +h.getPosy()) / (48 / GV::size);
+    xmc = (int)(h.getPosx()) / (24 / GV::size);
+    ymc = (int)(h.getPosy()) / (48 / GV::size);
     if (whatsthetype(abs(xmc), abs(ymc), biom, GV::col_biom) == 4)
     {
         music[1].stop();

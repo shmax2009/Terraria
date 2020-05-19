@@ -29,7 +29,7 @@ void cinmap(vector<vector<Block *>> &arr, ofstream &fout)
 	{
 		for (int j = 0; j < GV::y; j++)
 		{
-W
+
 			// cout << i << " " << j << " " << arr[i][j]->getType() << endl;
 			if (arr[i][j] != NULL)
 				arr[i][j]->serialaze(fout);
